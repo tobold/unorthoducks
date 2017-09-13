@@ -11,11 +11,15 @@ public class spawner : MonoBehaviour {
 	public void SpawnSphere () {
 		GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 		sphere.AddComponent<Rigidbody>();
-		sphere.transform.position = new Vector3(1, 1, 1);
+		Vector3 startvelocity = Camera.main.transform.forward;
+		// startvelocity.y = 0.5f;
+    startvelocity = startvelocity.normalized * 10;
+		sphere.GetComponent<Rigidbody> ().velocity = startvelocity;
+		sphere.transform.position = Camera.main.transform.position;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 }
