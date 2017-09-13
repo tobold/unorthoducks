@@ -451,10 +451,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 727548821}
---- !u!1 &810567751 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100000, guid: bf30d577eead1ef40bcf2b404289daf4, type: 2}
-  m_PrefabInternal: {fileID: 1417321035}
 --- !u!21 &870557170
 Material:
   serializedVersion: 6
@@ -690,8 +686,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0093b1c0906c54adb87286c9bec1ab08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1864747851775674, guid: f9138a3edad0e4027ab6fd2b90e1a602, type: 2}
-  playerposition: {fileID: 810567751}
+  projectile: {fileID: 114648699094663258, guid: f9138a3edad0e4027ab6fd2b90e1a602,
+    type: 2}
+  cam: {fileID: 0}
 --- !u!4 &1303481210
 Transform:
   m_ObjectHideFlags: 0
