@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spawner : MonoBehaviour {
+public class Spawner : MonoBehaviour {
 
 	public Mesh mesh;
 	public Material material;
@@ -12,10 +12,10 @@ public class spawner : MonoBehaviour {
 		GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 		sphere.AddComponent<Rigidbody>();
 		Vector3 startvelocity = Camera.main.transform.forward;
-		// startvelocity.y = 0.5f;
-    startvelocity = startvelocity.normalized * 10;
+    startvelocity = startvelocity.normalized * 20;
 		sphere.GetComponent<Rigidbody> ().velocity = startvelocity;
 		sphere.transform.position = Camera.main.transform.position;
+		sphere.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
 	}
 
 	// Update is called once per frame
