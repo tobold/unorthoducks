@@ -4,8 +4,8 @@ namespace Unorthoducks
 {
   public class PlayerMotor : MonoBehaviour, IGunController
   {
-    public GameObject projectile;
-    public GameObject playerposition;
+    public Projectile projectile;
+    public Transform cam;
     public PlayerController controller;
 
     private void OnEnable ()
@@ -21,21 +21,11 @@ namespace Unorthoducks
 
     public void Fire()
     {
-      var bullet = Instantiate (projectile, Camera.main.transform.position,
-				Quaternion.identity) as GameObject;
-
-      Vector3 startvelocity = Camera.main.transform.forward;
-      startvelocity = startvelocity.normalized * 20;
-
+      cam = Camera.main.transform;
+      var bullet = Instantiate (projectile, cam.position,
+				Quaternion.identity) as Projectile;
+      Vector3 startvelocity = cam.forward.normalized * 20;
       bullet.GetComponent<Rigidbody> ().velocity = startvelocity;
-
-      // GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-      // sphere.AddComponent<Rigidbody>();
-      // Vector3 startvelocity = Camera.main.transform.forward;
-      // startvelocity = startvelocity.normalized * 20;
-      // sphere.GetComponent<Rigidbody> ().velocity = startvelocity;
-      // sphere.transform.position = Camera.main.transform.position;
-      // sphere.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
     }
   }
 }
