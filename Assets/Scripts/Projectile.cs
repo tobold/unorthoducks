@@ -1,7 +1,13 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+namespace Unorthoducks
 {
+  public class Projectile : MonoBehaviour
+  {
+    float Floor = -20;
 
-
+    void Update () {
+		  if (this.transform.position.y < Floor) Destroy (this.gameObject);
+    }
+  }
 }
