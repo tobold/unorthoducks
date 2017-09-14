@@ -20,13 +20,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4302611553359066}
   - component: {fileID: 33692702062196976}
-  - component: {fileID: 65675890674804042}
+  - component: {fileID: 65127783495968996}
   - component: {fileID: 23114304016282490}
   - component: {fileID: 54409202859563890}
-  - component: {fileID: 114330400700930448}
+  - component: {fileID: 114695242862092160}
   m_Layer: 0
-  m_Name: pref_duck
-  m_TagString: Duck
+  m_Name: pref_zombie
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 13438c65ad9a9463abc81fc815268a66, type: 2}
+  - {fileID: 2100000, guid: 3dfa2c462857148b096203e272501f19, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,7 +98,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 36
   m_CollisionDetection: 0
---- !u!65 &65675890674804042
+--- !u!65 &65127783495968996
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -110,7 +110,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114330400700930448
+--- !u!114 &114695242862092160
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -118,6 +118,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1864747851775674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8c8bb97f3ce748e1990d6a8f3e2d127, type: 3}
+  m_Script: {fileID: 11500000, guid: bcdc5a50b72b84fe08989833c4aa35b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ducks: []
