@@ -27,7 +27,6 @@ namespace Unorthoducks
 
       var bullet = Instantiate (projectile, bulletExit,
 				Quaternion.identity) as Projectile;
-      // Vector3 startvelocity = cam.forward * 20;
       bullet.GetComponent<Rigidbody> ().velocity = bulletVelocity * 20;
     }
   }
