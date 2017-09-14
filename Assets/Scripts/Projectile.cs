@@ -9,5 +9,10 @@ namespace Unorthoducks
     void Update () {
 		  if (this.transform.position.y < Floor) Destroy (this.gameObject);
     }
+    
+    void OnCollisionEnter(Collision collision)
+    {
+      Destroy (this.gameObject);
+    }
   }
 }
