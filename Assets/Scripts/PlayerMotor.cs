@@ -6,6 +6,7 @@ namespace Unorthoducks
   {
     public Projectile projectile;
     public PlayerController controller;
+    public GameObject turret;
 
     private void OnEnable ()
 		{
@@ -20,11 +21,14 @@ namespace Unorthoducks
 
     public void Fire()
     {
-      Transform cam = Camera.main.transform;
-      var bullet = Instantiate (projectile, cam.position,
+      Transform t = turret.transform;
+      Vector3 bulletExit = new Vector3((float)t.position.x, (float)t.position.y, (float)t.position.z);
+      Vector3 bulletVelocity = new Vector3((float)t.up.x, (float)t.up.y, (float)t.up.z);
+
+      var bullet = Instantiate (projectile, bulletExit,
 				Quaternion.identity) as Projectile;
-      Vector3 startvelocity = cam.forward.normalized * 20;
-      bullet.GetComponent<Rigidbody> ().velocity = startvelocity;
+      // Vector3 startvelocity = cam.forward * 20;
+      bullet.GetComponent<Rigidbody> ().velocity = bulletVelocity * 20;
     }
   }
 }
