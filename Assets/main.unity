@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 1516739531}
   - component: {fileID: 1516739529}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
