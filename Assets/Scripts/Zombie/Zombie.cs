@@ -18,6 +18,10 @@ namespace Unorthoducks
       zombieController.Move();
     }
 
+		public void Direction ()
+		{
+    }
+
     public void Move ()
     {
       float speed = 1;
