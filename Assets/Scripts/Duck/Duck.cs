@@ -5,25 +5,29 @@ namespace Unorthoducks
   public class Duck : MonoBehaviour, IDuckMovementController
   {
     public DuckController duckController;
-	  public int size;
+	  public int boardSize;
     public Vector3 randPoint;
-    public ZombieSpawner zombieSpawner;
+    public Zombie zombie;
 
     public void Start ()
     {
-  	  size = Settings.LandscapeSize ();
+  	  boardSize = Settings.LandscapeSize ();
       duckController.SetDuckMovementController (this);
-      InvokeRepeating("ControllerDirection", 0f, 3f);
+      Invoke("ControllerDirection", 0f);
     }
 
     public void ControllerDirection()
     {
+        float randomTime = Random.Range(1f, 5f);
         duckController.Direction();
+        Invoke("ControllerDirection", randomTime);
     }
 
     public void Direction ()
     {
-      randPoint = new Vector3(Random.Range(-size/2f, size/2f), 0.125f, Random.Range(-size/2, size/2));
+      var x = Random.Range(-boardSize/2f, boardSize/2f);
+      var y = Random.Range(-boardSize/2f, boardSize/2f);
+      randPoint = new Vector3(x, 0.125f, y);
     }
 
     public void Update ()
@@ -33,7 +37,7 @@ namespace Unorthoducks
 
     public void Move ()
     {
-      float speed = 1;
+      float speed = 1f;
       float step = speed * Time.deltaTime;
       transform.position = Vector3.MoveTowards(transform.position, randPoint, step);
     }
@@ -49,9 +53,11 @@ namespace Unorthoducks
 
       if(col.gameObject.name == "pref_zombie(Clone)")
       {
-        Vector3 position = this.transform.position;
+        Vector3 position = transform.position;
         Destroy (this.gameObject);
-        zombieSpawner.SpawnZombieFromDuck (position);
+        var newZombie = Instantiate(zombie, position, Quaternion.identity) as Zombie;
+        newZombie.transform.parent = transform.parent;
+        Debug.Log(newZombie);
       }
     }
   }

@@ -24,7 +24,7 @@ namespace Unorthoducks
 
     public void Move ()
     {
-      float speed = 1;
+      float speed = 0.1f;
       float step = speed * Time.deltaTime;
 			GameObject chasedDuck = GetClosestEnemy(ducks);
       transform.position = Vector3.MoveTowards(transform.position, chasedDuck.transform.position, step);

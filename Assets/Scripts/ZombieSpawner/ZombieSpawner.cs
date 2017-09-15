@@ -18,22 +18,17 @@ namespace Unorthoducks
 
 		private void CreateZombieDucks()
 		{
-			if(numberZombies < 5 && this.gameObject.activeSelf)
+			if(numberZombies < 1 && this.gameObject.activeSelf)
       {
         controller.SpawnZombie ();
         numberZombies += 1;
       }
 		}
 
-		public static void SpawnZombieFromDuck (Vector3 position)
-		{
-			var newZombie = Instantiate(zombie, position, Quaternion.identity) as Zombie;
-			newZombie.transform.parent = transform;
-		}
-
 		public void Spawn ()
 		{
-			var newZombie = Instantiate(zombie, new Vector3(1f, 0.125f, 1f), Quaternion.identity) as Zombie;
+			var newZombie = Instantiate(zombie, new Vector3(1f, 0.125f, 1f),
+			Quaternion.identity) as Zombie;
 			newZombie.transform.parent = transform;
 		}
 	}
