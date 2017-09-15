@@ -24,7 +24,7 @@ namespace Unorthoducks
 
     public void Move ()
     {
-      float speed = 1;
+      float speed = 0.5f;
       float step = speed * Time.deltaTime;
 			GameObject chasedDuck = GetClosestEnemy(ducks);
       transform.position = Vector3.MoveTowards(transform.position, chasedDuck.transform.position, step);
@@ -38,6 +38,11 @@ namespace Unorthoducks
 		void OnCollisionEnter (Collision col)
     {
       zombieController.FindEnemies();
+
+			if(col.gameObject.name == "pref_projectile(Clone)")
+      {
+        Destroy (this.gameObject);
+      }
     }
 
     private GameObject GetClosestEnemy(GameObject[] enemies)

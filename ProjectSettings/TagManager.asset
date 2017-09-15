@@ -6,6 +6,7 @@ TagManager:
   tags:
   - floor
   - Duck
+  - Zombie
   layers:
   - Default
   - TransparentFX

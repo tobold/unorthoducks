@@ -121,5 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c8bb97f3ce748e1990d6a8f3e2d127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 0
+  zombies: []
+  boardSize: 0
   randPoint: {x: 0, y: 0, z: 0}
+  zombie: {fileID: 114695242862092160, guid: 0ecad74e7573848a6a73ddaaf461195f, type: 2}
