@@ -19,8 +19,8 @@ namespace Unorthoducks
     [Test]
     public void Initialise ()
     {
-      controller.Initialise ();
-      duckSpawner.Received (1).Initialise ();
+      controller.Spawn ();
+      duckSpawner.Received (1).Spawn ();
     }
     private IDuckSpawner GetDuckSpawnerMock ()
     {

@@ -7,9 +7,9 @@ namespace Unorthoducks
   {
 		private IDuckSpawner duckSpawner;
 
-    public void CreateDucks ()
+    public void Spawn ()
 		{
-      duckSpawner.CreateDucks ();
+      duckSpawner.Spawn ();
 		}
 
     public void SetDuckSpawner ( IDuckSpawner spawner )
