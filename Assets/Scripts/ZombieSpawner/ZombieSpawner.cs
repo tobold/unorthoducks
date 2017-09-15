@@ -31,7 +31,7 @@ namespace Unorthoducks
 
 		public void SpawnZombie ()
 		{
-			var newZombie = Instantiate(zombie, new Vector3(2f, 2f, 2f), Quaternion.identity) as Zombie;
+			var newZombie = Instantiate(zombie, new Vector3(1f, 0.125f, 1f), Quaternion.identity) as Zombie;
 			newZombie.transform.parent = imageTarget.transform;
 		}
 	}

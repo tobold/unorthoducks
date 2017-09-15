@@ -5,9 +5,11 @@ namespace Unorthoducks
   public class Duck : MonoBehaviour, IDuckMovementController
   {
     public DuckController duckController;
+	  public int size;
 
-    private void OnEnable ()
+    public void OnEnable ()
     {
+  	  size = Settings.LandscapeSize ();
       duckController.SetDuckMovementController (this);
     }
 
@@ -18,8 +20,10 @@ namespace Unorthoducks
 
     public void Move ()
     {
-      Vector3 randomDirection = new Vector3(Random.Range(-1, 2), 0.0f, Random.Range(-1, 2));
-      GetComponent<Rigidbody> ().velocity = randomDirection * 1f;
+      float speed = 1;
+      float step = speed * Time.deltaTime;
+      Vector3 randPoint = new Vector3(Random.Range(-size/2, size/2), 0f, Random.Range(-size/2, size/2));
+      transform.position = Vector3.MoveTowards(transform.position, randPoint, step);
     }
 
     void OnCollisionEnter (Collision col)

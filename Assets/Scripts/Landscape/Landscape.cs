@@ -10,6 +10,7 @@ namespace Unorthoducks
 
     public void OnEnable ()
     {
+			size = Settings.LandscapeSize();
       landscapeController.SetLandscapeController (this);
       landscapeController.Initialise();
     }
@@ -28,7 +29,7 @@ namespace Unorthoducks
 
     public void Initialise ()
     {
-      var floor = Instantiate (landscape, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+      var floor = Instantiate (landscape, new Vector3(0, 0.05f, 0), Quaternion.identity) as GameObject;
       Resize (floor);
       GameObject imageTarget = GameObject.Find("ImageTarget");
       floor.transform.parent = imageTarget.transform;
