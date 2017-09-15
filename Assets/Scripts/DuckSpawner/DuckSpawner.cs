@@ -26,7 +26,7 @@ namespace Unorthoducks
 		public void Spawn ()
 		{
 			if (this.gameObject.activeSelf) {
-				var target = Instantiate (duck, new Vector3 (3f, 0.15f, 6f),
+				var target = Instantiate (duck, new Vector3 (0f, 0.125f, 0f),
 					              Quaternion.identity) as Duck;
 				target.transform.parent = transform;
 				numberDucks += 1;

@@ -6,6 +6,11 @@ namespace Unorthoducks
 {
 	public class ZombieSpawner : MonoBehaviour, IDuckSpawner
 	{
+<<<<<<< HEAD
+		private GameObject imageTarget;
+    public float numberZombies;
+=======
+>>>>>>> ccab1e8de5f28ea2898d49ec19b4ffadf66596ca
 		public Zombie zombie;
 		public ZombieSpawnerController controller;
 		public int numberZombies;
@@ -29,8 +34,13 @@ namespace Unorthoducks
 
 		public void Spawn ()
 		{
+<<<<<<< HEAD
+			var newZombie = Instantiate(zombie, new Vector3(1f, 0.125f, 1f), Quaternion.identity) as Zombie;
+			newZombie.transform.parent = imageTarget.transform;
+=======
 			var newZombie = Instantiate(zombie, new Vector3(2f, 2f, 2f), Quaternion.identity) as Zombie;
 			newZombie.transform.parent = transform;
+>>>>>>> ccab1e8de5f28ea2898d49ec19b4ffadf66596ca
 		}
 	}
 }

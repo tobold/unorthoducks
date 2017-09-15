@@ -3,28 +3,36 @@ using NUnit.Framework;
 
 namespace Unorthoducks
 {
-  public class DuckSpawnerControllerTests
+  public class DuckControllerTests
   {
-    private IDuckSpawner duckSpawner;
-    private DuckSpawnerController controller;
+    private IDuckMovementController duckMovementController;
+    private DuckController controller;
 
     [SetUp]
     public void BeforeTest ()
     {
-      duckSpawner = GetDuckSpawnerMock ();
-      controller = new DuckSpawnerController ();
-      controller.SetDuckSpawner (duckSpawner);
+      duckMovementController = GetDuckMovementControllerMock ();
+      controller = new DuckController ();
+      controller.SetDuckMovementController (duckMovementController);
     }
 
     [Test]
-    public void Initialise ()
+    public void Move ()
     {
-      controller.Spawn ();
-      duckSpawner.Received (1).Spawn ();
+      controller.Move ();
+      duckMovementController.Received (1).Move ();
     }
-    private IDuckSpawner GetDuckSpawnerMock ()
+
+    [Test]
+    public void Direction ()
     {
-      return Substitute.For<IDuckSpawner> ();
+      controller.Direction ();
+      duckMovementController.Received (1).Direction ();
+    }
+
+    private IDuckMovementController GetDuckMovementControllerMock ()
+    {
+      return Substitute.For<IDuckMovementController> ();
     }
   }
 }
