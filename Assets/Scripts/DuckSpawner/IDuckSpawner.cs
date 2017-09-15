@@ -1,6 +1,6 @@
 namespace Unorthoducks
 {
-	public interface IDuckController
+	public interface IDuckSpawner
 	{
 		void Initialise ();
 	}
