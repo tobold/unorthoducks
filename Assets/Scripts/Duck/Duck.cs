@@ -4,6 +4,7 @@ namespace Unorthoducks
 {
   public class Duck : MonoBehaviour, IDuckMovementController
   {
+    public GameObject[] zombies;
     public DuckController duckController;
 	  public int boardSize;
     public Vector3 randPoint;
@@ -30,19 +31,33 @@ namespace Unorthoducks
       randPoint = new Vector3(x, 0.125f, y);
     }
 
+    public void FindEnemies ()
+    {
+      zombies = GameObject.FindGameObjectsWithTag("Zombie");
+    }
+
     public void Update ()
     {
+      FindEnemies();
       duckController.Move();
     }
 
     public void Move ()
     {
-      float speed = 1f;
-      float step = speed * Time.deltaTime;
-      transform.position = Vector3.MoveTowards(transform.position, randPoint, step);
+      GameObject closestZombie = GetClosestEnemy(zombies);
+      if (closestZombie == null)
+      {
+        float speed = 0.5f;
+        float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, randPoint, step);
+      }
+      else
+      {
+        float speed = -0.3f;
+        float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, closestZombie.transform.position, step);
+      }
     }
-
-    public void FindEnemies () {}
 
     void OnCollisionEnter (Collision col)
     {
@@ -59,6 +74,26 @@ namespace Unorthoducks
         newZombie.transform.parent = transform.parent;
         Debug.Log(newZombie);
       }
+    }
+
+    private GameObject GetClosestEnemy(GameObject[] enemies)
+    {
+      GameObject zombieMin = null;
+      float minDist = 1;
+      Vector3 currentPos = transform.position;
+      foreach (GameObject zombie in enemies)
+      {
+				if (zombie)
+				{
+					float dist = Vector3.Distance(zombie.transform.position, currentPos);
+					if (dist < minDist)
+					{
+					  zombieMin = zombie;
+					  minDist = dist;
+					}
+				}
+      }
+      return zombieMin;
     }
   }
 }

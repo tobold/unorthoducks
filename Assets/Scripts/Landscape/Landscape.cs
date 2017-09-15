@@ -8,7 +8,7 @@ namespace Unorthoducks
     public GameObject landscape;
     public int boardSize;
 
-    public void OnEnable ()
+    public void Start ()
     {
 			boardSize = Settings.LandscapeSize();
       landscapeController.SetLandscapeController (this);

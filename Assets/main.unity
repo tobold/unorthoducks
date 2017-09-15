@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4471826, g: 0.49710405, b: 0.5751562, a: 1}
+  m_IndirectSpecularColor: {r: 0.44718277, g: 0.49710423, b: 0.57515705, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -322,8 +322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13da90328af3e4e109205bde9cd1da8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberZombies: 0
   zombie: {fileID: 114695242862092160, guid: 0ecad74e7573848a6a73ddaaf461195f, type: 2}
+  numberZombies: 0
 --- !u!4 &514772425
 Transform:
   m_ObjectHideFlags: 0
@@ -780,6 +780,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duck: {fileID: 114330400700930448, guid: ced4512f881ef47f28dc3e51d8e005ef, type: 2}
+  numberDucks: 0
+  boardSize: 0
 --- !u!4 &1389536315
 Transform:
   m_ObjectHideFlags: 0
@@ -1084,5 +1086,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d62b8cdd2104dadabfcb5d3d1f5305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landscape: {fileID: 1531653090274170, guid: d9bfeae2b57ed4f66aedb3b681da27f4, type: 2}
-  size: 5
+  landscape: {fileID: 1270286589644222, guid: a2b8044a2a6454ba094636ba1861f94e, type: 2}
+  boardSize: 0
