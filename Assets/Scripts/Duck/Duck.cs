@@ -22,6 +22,8 @@ namespace Unorthoducks
       GetComponent<Rigidbody> ().velocity = randomDirection * 1f;
     }
 
+    public void FindEnemies () {}
+
     void OnCollisionEnter (Collision col)
     {
       if(col.gameObject.name == "pref_projectile(Clone)")
