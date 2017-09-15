@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Unorthoducks
 {
-	public class DuckMotor : MonoBehaviour, IDuckController
+	public class DuckSpawner : MonoBehaviour, IDuckController
 	{
 		public Duck duck;
 		public DuckController controller;

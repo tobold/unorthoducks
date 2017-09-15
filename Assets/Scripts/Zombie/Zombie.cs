@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Unorthoducks
 {
-	public class ZombieMotor : MonoBehaviour, IZombieMovementController
+	public class Zombie : MonoBehaviour, IZombieMovementController
 	{
     public GameObject[] ducks;
     public ZombieController zombiecontroller;
@@ -10,12 +10,8 @@ namespace Unorthoducks
     private void OnEnable ()
 		{
 			zombiecontroller.SetZombieMovementController (this);
+			zombiecontroller.FindDucks();
 		}
-
-		public void Start ()
-		{
-      zombiecontroller.FindDucks();
-	  }
 
     public void Update ()
 		{
