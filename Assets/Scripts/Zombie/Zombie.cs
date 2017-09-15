@@ -26,12 +26,18 @@ namespace Unorthoducks
     {
       float speed = 1;
       float step = speed * Time.deltaTime;
-      transform.position = Vector3.MoveTowards(transform.position, GetClosestEnemy(ducks).transform.position, step);
+			GameObject chasedDuck = GetClosestEnemy(ducks);
+      transform.position = Vector3.MoveTowards(transform.position, chasedDuck.transform.position, step);
     }
 
     public void FindEnemies ()
     {
       ducks = GameObject.FindGameObjectsWithTag("Duck");
+    }
+
+		void OnCollisionEnter (Collision col)
+    {
+      zombieController.FindEnemies();
     }
 
     private GameObject GetClosestEnemy(GameObject[] enemies)
@@ -41,12 +47,15 @@ namespace Unorthoducks
       Vector3 currentPos = transform.position;
       foreach (GameObject d in enemies)
       {
-         float dist = Vector3.Distance(d.transform.position, currentPos);
-         if (dist < minDist)
-         {
-             dMin = d;
-             minDist = dist;
-         }
+				if (d)
+				{
+					float dist = Vector3.Distance(d.transform.position, currentPos);
+					if (dist < minDist)
+					{
+					  dMin = d;
+					  minDist = dist;
+					}
+				}
       }
       return dMin;
     }
