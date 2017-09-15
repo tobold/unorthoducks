@@ -6,25 +6,23 @@ namespace Unorthoducks
 {
 	public class ZombieSpawner : MonoBehaviour, IZombieSpawner
 	{
-		public GameObject imageTarget;
-    public float numberZombies;
+    	public float numberZombies;
 		public Zombie zombie;
 		public ZombieSpawnerController controller;
 
-		private void OnEnable () {
-      numberZombies = 0;
-			imageTarget = GameObject.Find("ImageTarget");
+		private void Start () {
+      		numberZombies = 0;
 			controller.SetZombieSpawner (this);
 			InvokeRepeating("Spawn", 1f, 1f);
 		}
 
 		private void Spawn()
 		{
-      if(numberZombies < 5)
-      {
-        controller.SpawnZombie ();
-        numberZombies += 1;
-      }
+			if(numberZombies < 5 && this.gameObject.activeSelf)
+      		{
+        		controller.SpawnZombie ();
+        		numberZombies += 1;
+      		}
 		}
 
 //		implementation of IDuckSpawner
@@ -32,7 +30,7 @@ namespace Unorthoducks
 		public void SpawnZombie ()
 		{
 			var newZombie = Instantiate(zombie, new Vector3(2f, 2f, 2f), Quaternion.identity) as Zombie;
-			newZombie.transform.parent = imageTarget.transform;
+			newZombie.transform.parent = transform;
 		}
 	}
 }
