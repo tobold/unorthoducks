@@ -6,17 +6,16 @@ namespace Unorthoducks
 	[Serializable]
   public class DuckController
   {
-		private IDuckController duckController;
+		private IDuckMovementController duckMovementController;
 
-    public void Initialise ()
-		{
-      duckController.Initialise ();
-		}
-
-    public void SetDuckController ( IDuckController duckController )
+    public void Move ()
     {
-      this.duckController = duckController;
+      duckMovementController.Move();
     }
 
+    public void SetDuckMovementController ( IDuckMovementController duckMovementController )
+		{
+			this.duckMovementController = duckMovementController;
+		}
   }
 }
