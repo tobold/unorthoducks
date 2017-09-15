@@ -24,11 +24,6 @@ namespace Unorthoducks
       floor.transform.localScale = new Vector3((float)x, 0.1f, (float)y);
     }
 
-    public int CheckSize ()
-    {
-      return size;
-    }
-
     public void Initialise ()
     {
       var floor = Instantiate (landscape, new Vector3(0, -0.05f, 0), Quaternion.identity) as GameObject;

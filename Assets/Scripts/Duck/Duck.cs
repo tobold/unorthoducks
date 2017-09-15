@@ -12,12 +12,17 @@ namespace Unorthoducks
     {
   	  size = Settings.LandscapeSize ();
       duckController.SetDuckMovementController (this);
-      InvokeRepeating("Direction", 0f, 3f);
+      InvokeRepeating("ControllerDirection", 0f, 3f);
+    }
+
+    public void ControllerDirection()
+    {
+        duckController.Direction();
     }
 
     public void Direction ()
     {
-      randPoint = new Vector3(Random.Range(-size/2, size/2), 0.125f, Random.Range(-size/2, size/2));
+      randPoint = new Vector3(Random.Range(-size/2f, size/2f), 0.125f, Random.Range(-size/2, size/2));
     }
 
     public void Update ()

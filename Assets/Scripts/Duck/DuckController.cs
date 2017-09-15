@@ -13,6 +13,11 @@ namespace Unorthoducks
       duckMovementController.Move();
     }
 
+		public void Direction ()
+		{
+			duckMovementController.Direction();
+		}
+
     public void SetDuckMovementController ( IDuckMovementController duckMovementController )
 		{
 			this.duckMovementController = duckMovementController;
