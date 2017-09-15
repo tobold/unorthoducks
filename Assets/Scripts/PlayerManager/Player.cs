@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Unorthoducks
 {
-  public class PlayerMotor : MonoBehaviour, IGunController
+  public class Player : MonoBehaviour, IGunController
   {
     public Projectile projectile;
     public PlayerController controller;
