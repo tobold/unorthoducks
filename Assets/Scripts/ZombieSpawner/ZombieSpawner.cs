@@ -6,7 +6,7 @@ namespace Unorthoducks
 {
 	public class ZombieSpawner : MonoBehaviour, IZombieSpawner
 	{
-		public GameObject imageTarget;
+		private GameObject imageTarget;
     public float numberZombies;
 		public Zombie zombie;
 		public ZombieSpawnerController controller;
