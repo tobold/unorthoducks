@@ -5,7 +5,7 @@ namespace Unorthoducks
 	public class Settings
 	{
 
-		public const int size = 1;
+		public const int size = 5;
 
 		public static int LandscapeSize ()
 		{

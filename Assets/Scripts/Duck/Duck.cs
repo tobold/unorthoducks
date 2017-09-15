@@ -6,11 +6,18 @@ namespace Unorthoducks
   {
     public DuckController duckController;
 	  public int size;
+    public Vector3 randPoint;
 
-    public void OnEnable ()
+    public void Start ()
     {
   	  size = Settings.LandscapeSize ();
       duckController.SetDuckMovementController (this);
+      InvokeRepeating("Direction", 0f, 3f);
+    }
+
+    public void Direction ()
+    {
+      randPoint = new Vector3(Random.Range(-size/2, size/2), 0.125f, Random.Range(-size/2, size/2));
     }
 
     public void Update ()
@@ -22,7 +29,6 @@ namespace Unorthoducks
     {
       float speed = 1;
       float step = speed * Time.deltaTime;
-      Vector3 randPoint = new Vector3(Random.Range(-size/2, size/2), 0f, Random.Range(-size/2, size/2));
       transform.position = Vector3.MoveTowards(transform.position, randPoint, step);
     }
 
