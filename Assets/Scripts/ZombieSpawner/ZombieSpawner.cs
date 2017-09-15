@@ -25,6 +25,12 @@ namespace Unorthoducks
       }
 		}
 
+		public static void SpawnZombieFromDuck (Vector3 position)
+		{
+			var newZombie = Instantiate(zombie, position, Quaternion.identity) as Zombie;
+			newZombie.transform.parent = transform;
+		}
+
 		public void Spawn ()
 		{
 			var newZombie = Instantiate(zombie, new Vector3(1f, 0.125f, 1f), Quaternion.identity) as Zombie;

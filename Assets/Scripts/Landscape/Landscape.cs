@@ -19,8 +19,6 @@ namespace Unorthoducks
     {
       var x = 1 * size;
       var y = 1 * size;
-      Debug.Log((float)x);
-      Debug.Log(y);
       floor.transform.localScale = new Vector3((float)x, 0.1f, (float)y);
     }
 

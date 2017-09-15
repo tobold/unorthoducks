@@ -7,6 +7,7 @@ namespace Unorthoducks
     public DuckController duckController;
 	  public int size;
     public Vector3 randPoint;
+    public ZombieSpawner zombieSpawner;
 
     public void Start ()
     {
@@ -44,6 +45,13 @@ namespace Unorthoducks
       if(col.gameObject.name == "pref_projectile(Clone)")
       {
         Destroy (this.gameObject);
+      }
+
+      if(col.gameObject.name == "pref_zombie(Clone)")
+      {
+        Vector3 position = this.transform.position;
+        Destroy (this.gameObject);
+        zombieSpawner.SpawnZombieFromDuck (position);
       }
     }
   }

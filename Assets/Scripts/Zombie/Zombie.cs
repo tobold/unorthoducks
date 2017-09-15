@@ -38,6 +38,11 @@ namespace Unorthoducks
 		void OnCollisionEnter (Collision col)
     {
       zombieController.FindEnemies();
+
+			if(col.gameObject.name == "pref_projectile(Clone)")
+      {
+        Destroy (this.gameObject);
+      }
     }
 
     private GameObject GetClosestEnemy(GameObject[] enemies)
