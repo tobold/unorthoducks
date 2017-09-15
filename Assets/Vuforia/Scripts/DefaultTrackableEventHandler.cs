@@ -70,6 +70,11 @@ namespace Vuforia
         {
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
+			Transform imageTargetChildren = GameObject.Find("ImageTarget").transform;
+
+			foreach (Transform child in imageTargetChildren) {
+				child.gameObject.SetActive(true);
+			}
 
             // Enable rendering:
             foreach (Renderer component in rendererComponents)
@@ -91,6 +96,11 @@ namespace Vuforia
         {
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
+			Transform imageTargetChildren = GameObject.Find("ImageTarget").transform;
+
+			foreach (Transform child in imageTargetChildren) {
+				child.gameObject.SetActive(false);
+			}
 
             // Disable rendering:
             foreach (Renderer component in rendererComponents)

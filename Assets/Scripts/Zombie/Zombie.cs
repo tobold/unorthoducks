@@ -2,20 +2,20 @@ using UnityEngine;
 
 namespace Unorthoducks
 {
-	public class Zombie : MonoBehaviour, IZombieMovementController
+	public class Zombie : MonoBehaviour, IDuckMovementController
 	{
     public GameObject[] ducks;
-    public ZombieController zombiecontroller;
+    public ZombieController zombieController;
 
     private void OnEnable ()
 		{
-			zombiecontroller.SetZombieMovementController (this);
-			zombiecontroller.FindDucks();
+			zombieController.SetMovementController (this);
+			zombieController.FindEnemies();
 		}
 
     public void Update ()
 		{
-      zombiecontroller.Move();
+      zombieController.Move();
     }
 
     public void Move ()
@@ -25,7 +25,7 @@ namespace Unorthoducks
       transform.position = Vector3.MoveTowards(transform.position, GetClosestEnemy(ducks).transform.position, step);
     }
 
-    public void FindDucks ()
+    public void FindEnemies ()
     {
       ducks = GameObject.FindGameObjectsWithTag("Duck");
     }

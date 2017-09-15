@@ -5,7 +5,7 @@ namespace Unorthoducks
 {
   public class ZombieControllerTests
   {
-    private IZombieMovementController zombieMovementController;
+    private IDuckMovementController zombieMovementController;
     private ZombieController controller;
 
     [SetUp]
@@ -13,7 +13,7 @@ namespace Unorthoducks
     {
       zombieMovementController = GetZombieMovementMock ();
       controller = new ZombieController ();
-      controller.SetZombieMovementController (zombieMovementController);
+      controller.SetMovementController (zombieMovementController);
     }
 
     [Test]
@@ -23,9 +23,9 @@ namespace Unorthoducks
       zombieMovementController.Received (1).Move ();
     }
 
-    private IZombieMovementController GetZombieMovementMock ()
+    private IDuckMovementController GetZombieMovementMock ()
     {
-      return Substitute.For<IZombieMovementController> ();
+      return Substitute.For<IDuckMovementController> ();
     }
   }
 }

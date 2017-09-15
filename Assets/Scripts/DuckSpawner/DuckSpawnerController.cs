@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 namespace Unorthoducks
 {
@@ -8,15 +7,14 @@ namespace Unorthoducks
   {
 		private IDuckSpawner duckSpawner;
 
-    public void Initialise ()
+    public void Spawn ()
 		{
-      duckSpawner.Initialise ();
+      duckSpawner.Spawn ();
 		}
 
     public void SetDuckSpawner ( IDuckSpawner spawner )
     {
       this.duckSpawner = spawner;
     }
-
   }
 }

@@ -6,11 +6,11 @@ namespace Unorthoducks
 	[Serializable]
   public class ZombieController
   {
-		private IZombieMovementController zombieMovementController;
+		private IDuckMovementController zombieMovementController;
 
-    public void FindDucks ()
+    public void FindEnemies ()
 		{
-      zombieMovementController.FindDucks();
+      zombieMovementController.FindEnemies();
 		}
 
     public void Move ()
@@ -18,7 +18,7 @@ namespace Unorthoducks
       zombieMovementController.Move();
     }
 
-    public void SetZombieMovementController ( IZombieMovementController zombieMovementController )
+    public void SetMovementController ( IDuckMovementController zombieMovementController )
 		{
 			this.zombieMovementController = zombieMovementController;
 		}

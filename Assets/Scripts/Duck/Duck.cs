@@ -37,6 +37,8 @@ namespace Unorthoducks
       transform.position = Vector3.MoveTowards(transform.position, randPoint, step);
     }
 
+    public void FindEnemies () {}
+
     void OnCollisionEnter (Collision col)
     {
       if(col.gameObject.name == "pref_projectile(Clone)")

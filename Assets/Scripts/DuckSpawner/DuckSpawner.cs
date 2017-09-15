@@ -6,19 +6,31 @@ namespace Unorthoducks
 	{
 		public Duck duck;
 		public DuckSpawnerController controller;
+		public int numberDucks;
 
-		public void OnEnable ()
+		public void Start ()
 		{
+			numberDucks = 0;
 			controller.SetDuckSpawner (this);
-			controller.Initialise ();
-		 }
+			CreateDucks();
+		}
 
-		 public void Initialise ()
-		 {
-			 var target = Instantiate (duck, new Vector3(0f, 0.125f, 0f),
-					Quaternion.identity) as Duck;
-			 GameObject imageTarget = GameObject.Find("ImageTarget");
-			 target.transform.parent = imageTarget.transform;
-		 }
+		public void CreateDucks ()
+		{
+			while(numberDucks < 3)
+			{
+				controller.Spawn ();
+			}
+		}
+
+		public void Spawn ()
+		{
+			if (this.gameObject.activeSelf) {
+				var target = Instantiate (duck, new Vector3 (0f, 0.125f, 0f),
+					              Quaternion.identity) as Duck;
+				target.transform.parent = transform;
+				numberDucks += 1;
+			}
+		}
 	}
 }
