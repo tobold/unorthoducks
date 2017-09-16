@@ -11,18 +11,17 @@ namespace Unorthoducks
     public Zombie zombie;
 
     public void Start ()
-    {
-  	  boardSize = Settings.LandscapeSize ();
-      duckController.SetDuckMovementController (this);
-      Invoke("ControllerDirection", 0f);
-    }
+     {
+       boardSize = Settings.LandscapeSize ();
+       duckController.SetDuckMovementController (this);
+       float randomTime = Random.Range(1f, 5f);
+       InvokeRepeating("ChangeDirection", 0f, randomTime);
+     }
 
-    public void ControllerDirection()
-    {
-        float randomTime = Random.Range(1f, 5f);
-        duckController.Direction();
-        Invoke("ControllerDirection", randomTime);
-    }
+     public void ChangeDirection()
+     {
+         duckController.Direction();
+     }
 
     public void Direction ()
     {
@@ -31,15 +30,15 @@ namespace Unorthoducks
       randPoint = new Vector3(x, 0.125f, y);
     }
 
-    public void FindEnemies ()
-    {
-      zombies = GameObject.FindGameObjectsWithTag("Zombie");
-    }
-
     public void Update ()
     {
       FindEnemies();
       duckController.Move();
+    }
+
+    public void FindEnemies ()
+    {
+      zombies = GameObject.FindGameObjectsWithTag("Zombie");
     }
 
     public void Move ()
@@ -47,33 +46,32 @@ namespace Unorthoducks
       GameObject closestZombie = GetClosestEnemy(zombies);
       if (closestZombie == null)
       {
-        float speed = 0.5f;
-        float step = speed * Time.deltaTime;
+        float step = 0.5f * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, randPoint, step);
       }
       else
       {
-        float speed = -0.3f;
-        float step = speed * Time.deltaTime;
+        float step = -0.3f * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, closestZombie.transform.position, step);
       }
     }
 
     void OnCollisionEnter (Collision col)
     {
-      if(col.gameObject.name == "pref_projectile(Clone)")
-      {
+      if (col.gameObject.name == "pref_projectile(Clone)") {
         Destroy (this.gameObject);
       }
-
       if(col.gameObject.name == "pref_zombie(Clone)")
       {
-        Vector3 position = transform.position;
         Destroy (this.gameObject);
-        var newZombie = Instantiate(zombie, position, Quaternion.identity) as Zombie;
-        newZombie.transform.parent = transform.parent;
-        Debug.Log(newZombie);
+        TransformToZombie(transform.position);
       }
+    }
+
+    void TransformToZombie (Vector3 position)
+    {
+      var newZombie = Instantiate(zombie, position, Quaternion.identity) as Zombie;
+      newZombie.transform.parent = transform.parent;
     }
 
     private GameObject GetClosestEnemy(GameObject[] enemies)

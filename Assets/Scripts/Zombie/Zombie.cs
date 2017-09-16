@@ -6,6 +6,7 @@ namespace Unorthoducks
 	{
     public GameObject[] ducks;
     public ZombieController zombieController;
+		public Vector3 direction;
 
     private void OnEnable ()
 		{
@@ -15,19 +16,20 @@ namespace Unorthoducks
 
     public void Update ()
 		{
+			Direction();
       zombieController.Move();
     }
 
 		public void Direction ()
 		{
+			GameObject chasedDuck = GetClosestEnemy(ducks);
+			direction = chasedDuck.transform.position;
     }
 
     public void Move ()
     {
-      float speed = 0.5f;
-      float step = speed * Time.deltaTime;
-			GameObject chasedDuck = GetClosestEnemy(ducks);
-      transform.position = Vector3.MoveTowards(transform.position, chasedDuck.transform.position, step);
+      float step = 0.5f * Time.deltaTime;
+      transform.position = Vector3.MoveTowards(transform.position, direction, step);
     }
 
     public void FindEnemies ()
