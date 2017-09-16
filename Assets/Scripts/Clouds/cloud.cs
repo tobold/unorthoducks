@@ -2,26 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cloud : MonoBehaviour {
-
-	public float speed;  
-	public Transform[] target;
-	private int current;
-
-	void Start () 
+namespace Unorthoducks
+{
+	public class Cloud : MonoBehaviour
 	{
-		
+		public float speed;
+		public int boardSize;
+		public Vector3 randPoint;
 
-	}
-	void Update ()
-	{ 
-		if (transform.position != target [current].position) {
-			Vector3 pos = Vector3.MoveTowards (transform.position, target [current].position, speed * Time.deltaTime);
-			GetComponent<Rigidbody> ().MovePosition (pos);
+		public void Start ()
+		{
+			boardSize = Settings.LandscapeSize ();
+			float randomTime = Random.Range(3f, 6f);
+			InvokeRepeating("ChangeDirection", 0f, randomTime);
+		}
 
-		} else
-			current = (current + 1) % target.Length;
+		public void Update ()
+		{
+			Move();
+		}
+
+		public void Move ()
+		{
+			float step = 0.5f * Time.deltaTime;
+			transform.position = Vector3.MoveTowards(transform.position, randPoint, step);
+		}
+
+		public void ChangeDirection ()
+		{
+			var x = Random.Range(-boardSize/1.5f, boardSize/1.5f);
+			var z = Random.Range(-boardSize/1.5f, boardSize/1.5f);
+			randPoint = new Vector3(x, 5f, z);
+		}
 	}
 }
-
-

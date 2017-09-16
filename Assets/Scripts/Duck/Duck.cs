@@ -26,8 +26,8 @@ namespace Unorthoducks
     public void Direction ()
     {
       var x = Random.Range(-boardSize/2f, boardSize/2f);
-      var y = Random.Range(-boardSize/2f, boardSize/2f);
-      randPoint = new Vector3(x, 0.125f, y);
+      var z = Random.Range(-boardSize/2f, boardSize/2f);
+      randPoint = new Vector3(x, 0.125f, z);
     }
 
     public void Update ()
