@@ -27,8 +27,7 @@ namespace Unorthoducks
       var floor = Instantiate (landscape, new Vector3(0, -0.05f, 0),
 			 Quaternion.identity) as GameObject;
       Resize (floor);
-      GameObject imageTarget = GameObject.Find("ImageTarget");
-      floor.transform.parent = imageTarget.transform;
+      floor.transform.parent = transform;
     }
   }
 }
