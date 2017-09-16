@@ -2,16 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cloudSpawner : MonoBehaviour {
-	
-	public GameObject puffCloud;
-	public GameObject puffCloud_0;
-	public GameObject puffCloud_1;
+namespace Unorthoducks
+{
+	public class CloudSpawner : MonoBehaviour {
+		public int boardSize;
+		public GameObject[] puffClouds;
+		public float xCoord, zCoord;
 
-	void Start ()
-	{
-		Instantiate (puffCloud);
-		Instantiate (puffCloud_0);
-		Instantiate (puffCloud_1);
+		void Start ()
+		{
+			boardSize = Settings.LandscapeSize();
+			foreach (GameObject puffCloud in puffClouds) {
+				SpawnCloud(puffCloud);
+			}
+		}
+		void SpawnCloud (GameObject puffCloud)
+		{
+			xCoord = Random.Range(-boardSize/2f, boardSize/2f);
+			zCoord = Random.Range(-boardSize/2f, boardSize/2f);
+			Vector3 randPoint = new Vector3(xCoord, 5f, zCoord);
+			Instantiate (puffCloud, randPoint, Quaternion.identity);
+		}
 	}
 }
