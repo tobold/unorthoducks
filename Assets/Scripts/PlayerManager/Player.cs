@@ -25,7 +25,6 @@ namespace Unorthoducks
       Transform t = spawnPoint.transform;
       Vector3 bulletExit = t.position;
       Vector3 bulletVelocity = new Vector3((float)t.up.x, (float)t.up.y, (float)t.up.z);
-      // Vector3 bulletVelocity = new Vector3(0, 0, 0);
 
       var bullet = Instantiate (projectile, bulletExit,
 				Quaternion.identity) as Projectile;

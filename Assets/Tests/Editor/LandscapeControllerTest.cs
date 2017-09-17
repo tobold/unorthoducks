@@ -17,11 +17,26 @@ namespace Unorthoducks
     }
 
     [Test]
-    public void Initialise ()
+    public void InitialiseWorks ()
     {
       controller.Initialise ();
       landscapeController.Received (1).Initialise ();
     }
+
+    [Test]
+    public void SpawnFloorWorks ()
+    {
+      controller.SpawnFloor ();
+      landscapeController.Received (1).SpawnFloor ();
+    }
+
+    [Test]
+    public void SpawnCavesWorks ()
+    {
+      controller.SpawnCaves ();
+      landscapeController.Received (1).SpawnCaves ();
+    }
+
     private ILandscapeController GetLandscapeControllerMock ()
     {
       return Substitute.For<ILandscapeController> ();

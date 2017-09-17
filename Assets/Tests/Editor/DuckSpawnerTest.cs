@@ -5,7 +5,7 @@ namespace Unorthoducks
 {
   public class DuckSpawnerControllerTests
   {
-    private IDuckSpawner duckSpawner;
+    private ISpawner duckSpawner;
     private DuckSpawnerController controller;
 
     [SetUp]
@@ -23,9 +23,9 @@ namespace Unorthoducks
       duckSpawner.Received (1).Spawn ();
     }
 
-    private IDuckSpawner GetDuckSpawnerMock ()
+    private ISpawner GetDuckSpawnerMock ()
     {
-      return Substitute.For<IDuckSpawner> ();
+      return Substitute.For<ISpawner> ();
     }
   }
 }

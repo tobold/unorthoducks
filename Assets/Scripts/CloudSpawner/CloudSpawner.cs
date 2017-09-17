@@ -13,10 +13,10 @@ namespace Unorthoducks
 		{
 			boardSize = Settings.LandscapeSize();
 			foreach (GameObject puffCloud in puffClouds) {
-				SpawnCloud(puffCloud);
+				Spawn(puffCloud);
 			}
 		}
-		void SpawnCloud (GameObject puffCloud)
+		void Spawn (GameObject puffCloud)
 		{
 			xCoord = Random.Range(-boardSize/2f, boardSize/2f);
 			zCoord = Random.Range(-boardSize/2f, boardSize/2f);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Unorthoducks
 {
-	public class ZombieSpawner : MonoBehaviour, IDuckSpawner
+	public class ZombieSpawner : MonoBehaviour, ISpawner
 	{
 		public Zombie zombie;
 		public ZombieSpawnerController controller;
@@ -20,7 +20,7 @@ namespace Unorthoducks
 		{
 			if(numberZombies < 1 && this.gameObject.activeSelf)
       {
-        controller.SpawnZombie ();
+        controller.Spawn ();
         numberZombies += 1;
       }
 		}

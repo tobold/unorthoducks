@@ -5,14 +5,14 @@ namespace Unorthoducks
 	[Serializable]
   public class DuckSpawnerController
   {
-		private IDuckSpawner duckSpawner;
+		private ISpawner duckSpawner;
 
     public void Spawn ()
 		{
       duckSpawner.Spawn ();
 		}
 
-    public void SetDuckSpawner ( IDuckSpawner spawner )
+    public void SetDuckSpawner ( ISpawner spawner )
     {
       this.duckSpawner = spawner;
     }

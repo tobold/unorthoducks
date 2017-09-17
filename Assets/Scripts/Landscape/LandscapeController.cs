@@ -17,5 +17,15 @@ namespace Unorthoducks
     {
       landscapeController.Initialise ();
     }
+
+    public void SpawnFloor ()
+    {
+      landscapeController.SpawnFloor ();
+    }
+
+    public void SpawnCaves ()
+    {
+      landscapeController.SpawnCaves ();
+    }
   }
 }
