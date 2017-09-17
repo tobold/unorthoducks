@@ -286,6 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landscape: {fileID: 1270286589644222, guid: a2b8044a2a6454ba094636ba1861f94e, type: 2}
+  cave: {fileID: 1408052773107946, guid: 05ddef888bf9446fcade93af85a76315, type: 2}
   boardSize: 0
 --- !u!1 &353083625
 GameObject:
@@ -327,11 +328,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563b541e1705f4090be6bbd465374cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puffCloud: {fileID: 1963359480828188, guid: 883bf136ddd7546a99b0ad6cc4102531, type: 2}
-  puffCloud_0: {fileID: 1690007348271832, guid: 98862e5e4e0ef4b6f9539175f02d595b,
-    type: 2}
-  puffCloud_1: {fileID: 1153780498851582, guid: 05e69613b85094657ba49fbdfb62a672,
-    type: 2}
+  boardSize: 0
+  puffClouds: []
+  xCoord: 0
+  zCoord: 0
 --- !u!1 &473374083
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,11 +676,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563b541e1705f4090be6bbd465374cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puffCloud: {fileID: 1963359480828188, guid: 883bf136ddd7546a99b0ad6cc4102531, type: 2}
-  puffCloud_0: {fileID: 1690007348271832, guid: 98862e5e4e0ef4b6f9539175f02d595b,
-    type: 2}
-  puffCloud_1: {fileID: 1153780498851582, guid: 05e69613b85094657ba49fbdfb62a672,
-    type: 2}
+  boardSize: 0
+  puffClouds: []
+  xCoord: 0
+  zCoord: 0
 --- !u!1 &1155874948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,4 +1484,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landscape: {fileID: 1270286589644222, guid: a2b8044a2a6454ba094636ba1861f94e, type: 2}
+  cave: {fileID: 1408052773107946, guid: 05ddef888bf9446fcade93af85a76315, type: 2}
   boardSize: 0
