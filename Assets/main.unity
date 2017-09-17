@@ -286,7 +286,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landscape: {fileID: 1270286589644222, guid: a2b8044a2a6454ba094636ba1861f94e, type: 2}
+  cave: {fileID: 1408052773107946, guid: 05ddef888bf9446fcade93af85a76315, type: 2}
   boardSize: 0
+--- !u!1 &353083625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 353083626}
+  - component: {fileID: 353083627}
+  m_Layer: 0
+  m_Name: Clouds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &353083626
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 353083625}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 625868958}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &353083627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 353083625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 563b541e1705f4090be6bbd465374cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boardSize: 0
+  puffClouds: []
+  xCoord: 0
+  zCoord: 0
 --- !u!1 &473374083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,6 +1487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landscape: {fileID: 1270286589644222, guid: a2b8044a2a6454ba094636ba1861f94e, type: 2}
+  cave: {fileID: 1408052773107946, guid: 05ddef888bf9446fcade93af85a76315, type: 2}
   boardSize: 0
 --- !u!1 &1770112463
 GameObject:

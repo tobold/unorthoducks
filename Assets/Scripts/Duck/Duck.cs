@@ -77,7 +77,7 @@ namespace Unorthoducks
     private GameObject GetClosestEnemy(GameObject[] enemies)
     {
       GameObject zombieMin = null;
-      float minDist = 1;
+      float minDist = 2;
       Vector3 currentPos = transform.position;
       foreach (GameObject zombie in enemies)
       {
