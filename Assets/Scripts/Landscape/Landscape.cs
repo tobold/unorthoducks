@@ -32,7 +32,7 @@ namespace Unorthoducks
 
 		public void SpawnCaves ()
 		{
-			float angle = 0;
+			float angle = 180;
 			GameObject newCave;
 			for(int i = 0; i < 4; i++) {
 				newCave = Instantiate(cave, CavePosition(i),
