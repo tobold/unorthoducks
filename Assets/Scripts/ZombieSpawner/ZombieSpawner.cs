@@ -6,6 +6,7 @@ namespace Unorthoducks
 {
 	public class ZombieSpawner : MonoBehaviour, ISpawner
 	{
+		public GameObject[] spawnPoints;
 		public Zombie zombie;
 		public ZombieSpawnerController controller;
 		public int numberZombies;
@@ -13,12 +14,16 @@ namespace Unorthoducks
 		private void Start () {
       numberZombies = 0;
 			controller.SetZombieSpawner (this);
-			InvokeRepeating("CreateZombieDucks", 1f, 1f);
+			spawnPoints = GameObject.FindGameObjectsWithTag("CaveSpawnPoint");
+			foreach(GameObject point in spawnPoints) {
+				Debug.Log(point.transform.position);
+			}
+			InvokeRepeating("CreateZombieDucks", 1f, 2f);
 		}
 
 		private void CreateZombieDucks()
 		{
-			if(numberZombies < 1 && this.gameObject.activeSelf)
+			if(numberZombies < 4 && this.gameObject.activeSelf)
       {
         controller.Spawn ();
         numberZombies += 1;
@@ -27,8 +32,12 @@ namespace Unorthoducks
 
 		public void Spawn ()
 		{
-			var newZombie = Instantiate(zombie, new Vector3(1f, 0.125f, 1f),
-			Quaternion.identity) as Zombie;
+			int r = Random.Range(0, spawnPoints.Length);
+			Transform spawnPoint = spawnPoints[r].transform;
+			Vector3 spawnPosition = new Vector3(spawnPoint.position.x,
+																					spawnPoint.position.y + 0.125f,
+																					spawnPoint.position.z);
+			var newZombie = Instantiate(zombie, spawnPosition, Quaternion.identity) as Zombie;
 			newZombie.transform.parent = transform;
 		}
 	}

@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landscape: {fileID: 1270286589644222, guid: a2b8044a2a6454ba094636ba1861f94e, type: 2}
-  cave: {fileID: 1408052773107946, guid: 05ddef888bf9446fcade93af85a76315, type: 2}
+  cave: {fileID: 1143281586046412, guid: 05ddef888bf9446fcade93af85a76315, type: 2}
   boardSize: 0
 --- !u!1 &473374083
 GameObject:
@@ -437,6 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13da90328af3e4e109205bde9cd1da8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoints: []
   zombie: {fileID: 114695242862092160, guid: 0ecad74e7573848a6a73ddaaf461195f, type: 2}
   numberZombies: 0
 --- !u!4 &514772425
@@ -893,7 +894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0093b1c0906c54adb87286c9bec1ab08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 114648699094663258, guid: f9138a3edad0e4027ab6fd2b90e1a602,
+  projectile: {fileID: 114915170906215882, guid: 9234fbec6b1ce4e09825f765c8d6f8e9,
     type: 2}
   spawnPoint: {fileID: 0}
   turret: {fileID: 0}
@@ -1036,6 +1037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13da90328af3e4e109205bde9cd1da8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoints: []
   zombie: {fileID: 114695242862092160, guid: 0ecad74e7573848a6a73ddaaf461195f, type: 2}
   numberZombies: 0
 --- !u!1 &1389536313
@@ -1443,7 +1445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landscape: {fileID: 1270286589644222, guid: a2b8044a2a6454ba094636ba1861f94e, type: 2}
-  cave: {fileID: 1408052773107946, guid: 05ddef888bf9446fcade93af85a76315, type: 2}
+  cave: {fileID: 1304993696798920, guid: 993eaf5f9af6347deb961f9599c883d6, type: 2}
   boardSize: 0
 --- !u!1 &1770112463
 GameObject:
