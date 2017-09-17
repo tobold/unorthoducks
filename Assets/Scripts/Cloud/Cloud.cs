@@ -4,14 +4,16 @@ using UnityEngine;
 
 namespace Unorthoducks
 {
-	public class Cloud : MonoBehaviour
+	public class Cloud : MonoBehaviour, ICloudMovementController
 	{
+		public CloudController cloudController;
 		public float speed;
 		public int boardSize;
 		public Vector3 randPoint;
 
 		public void Start ()
 		{
+			cloudController.SetCloudMovementController(this);
 			boardSize = Settings.LandscapeSize ();
 			float randomTime = Random.Range(3f, 6f);
 			InvokeRepeating("ChangeDirection", 0f, randomTime);
@@ -19,7 +21,7 @@ namespace Unorthoducks
 
 		public void Update ()
 		{
-			Move();
+			cloudController.Move();
 		}
 
 		public void Move ()

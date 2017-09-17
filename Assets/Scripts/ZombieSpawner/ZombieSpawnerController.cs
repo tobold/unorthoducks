@@ -5,14 +5,14 @@ namespace Unorthoducks
 	[Serializable]
 	public class ZombieSpawnerController {
 
-		private IDuckSpawner zombieSpawner;
+		private ISpawner zombieSpawner;
 
-		public void SpawnZombie ()
+		public void Spawn ()
 		{
 			zombieSpawner.Spawn ();
 		}
 
-		public void SetZombieSpawner(IDuckSpawner zombieSpawner)
+		public void SetZombieSpawner(ISpawner zombieSpawner)
 		{
 			this.zombieSpawner = zombieSpawner;
 		}

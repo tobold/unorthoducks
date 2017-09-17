@@ -1,6 +1,6 @@
 namespace Unorthoducks
 {
-	public interface IDuckSpawner {
+	public interface ISpawner {
 		void Spawn();
 	}
 }
