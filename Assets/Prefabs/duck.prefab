@@ -60,7 +60,6 @@ GameObject:
   - component: {fileID: 23640949304454050}
   - component: {fileID: 95641599499181686}
   - component: {fileID: 114890891472520226}
-  - component: {fileID: 54061929327574090}
   m_Layer: 0
   m_Name: duck
   m_TagString: Duck
@@ -368,21 +367,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1943261908258640}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54061929327574090
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1350539912591110}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!65 &65022183554577516
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -452,7 +436,7 @@ Animator:
   m_GameObject: {fileID: 1350539912591110}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14223e9bec0124711be80471dea24d19, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -474,4 +458,4 @@ MonoBehaviour:
   zombies: []
   boardSize: 0
   randPoint: {x: 0, y: 0, z: 0}
-  zombie: {fileID: 114126373181004912, guid: 99b6ad1366f584c6b93dff8299e209b1, type: 2}
+  zombie: {fileID: 0}
