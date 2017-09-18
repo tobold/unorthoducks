@@ -15,6 +15,12 @@ namespace Unorthoducks
 		public static void DuckKill ()
 		{
 			score -= 10;
+			GameManager.IncrementDeadDucks();
+		}
+
+		public static void ZombieBiteDuck ()
+		{
+			GameManager.IncrementBittenDuck();
 		}
 
     public static int Score()

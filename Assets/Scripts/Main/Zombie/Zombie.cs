@@ -23,7 +23,7 @@ namespace Unorthoducks
 		public void Direction ()
 		{
 			GameObject chasedDuck = GetClosestEnemy(ducks);
-			direction = chasedDuck.transform.position;
+			if(chasedDuck) direction = chasedDuck.transform.position;
     }
 
     public void Move ()
@@ -44,7 +44,6 @@ namespace Unorthoducks
 			if(col.gameObject.tag == "Projectile")
       {
 				ScoreManager.ZombieKill();
-				Debug.Log(ScoreManager.Score());
         Destroy (this.gameObject);
       }
     }

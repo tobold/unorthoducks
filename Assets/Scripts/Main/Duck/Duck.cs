@@ -60,9 +60,9 @@ namespace Unorthoducks
     {
       if (col.gameObject.tag == "Projectile") {
         ScoreManager.DuckKill();
-        Debug.Log(ScoreManager.Score());
         Destroy (this.gameObject);
       } else if(col.gameObject.tag == "Zombie") {
+        ScoreManager.ZombieBiteDuck();
         Destroy (this.gameObject);
         TransformToZombie(transform.position);
       } else if(col.gameObject.tag == "Edge") {
