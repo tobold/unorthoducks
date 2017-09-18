@@ -268,7 +268,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 243180724}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5, y: -1, z: -5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 934129554}
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d62b8cdd2104dadabfcb5d3d1f5305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landscape: {fileID: 1270286589644222, guid: a2b8044a2a6454ba094636ba1861f94e, type: 2}
+  landscape: {fileID: 1278734462694684, guid: e54c9196acd2b4b14879c531c993f296, type: 2}
   cave: {fileID: 1143281586046412, guid: 05ddef888bf9446fcade93af85a76315, type: 2}
   boardSize: 0
 --- !u!1 &473374083
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoints: []
-  zombie: {fileID: 114695242862092160, guid: 0ecad74e7573848a6a73ddaaf461195f, type: 2}
+  zombie: {fileID: 0}
   numberZombies: 0
 --- !u!4 &625868958 stripped
 Transform:
@@ -891,7 +891,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1252722705}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5, y: -1, z: -5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 625868958}
@@ -908,8 +908,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d62b8cdd2104dadabfcb5d3d1f5305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landscape: {fileID: 1270286589644222, guid: a2b8044a2a6454ba094636ba1861f94e, type: 2}
-  cave: {fileID: 1143281586046412, guid: 05ddef888bf9446fcade93af85a76315, type: 2}
+  duck: {fileID: 114890819691841448, guid: d8801f10be98544fdba95b5d471b6483, type: 2}
+  numberDucks: 0
   boardSize: 0
 --- !u!1 &1257023613
 GameObject:
@@ -1063,7 +1063,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1359220002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5, y: -1, z: -5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 934129554}
@@ -1081,8 +1081,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoints: []
-  zombie: {fileID: 114695242862092160, guid: 0ecad74e7573848a6a73ddaaf461195f, type: 2}
+  zombie: {fileID: 114374164475417104, guid: 4e13af43a2c1547aaa3d6fc0f4e42017, type: 2}
   numberZombies: 0
+--- !u!1 &1389536313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1389536315}
+  - component: {fileID: 1389536314}
+  m_Layer: 0
+  m_Name: DuckSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1389536314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1389536313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1336a28a88402472892cfbea72da87b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duck: {fileID: 0}
+  numberDucks: 0
+  boardSize: 0
+--- !u!4 &1389536315
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1389536313}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 625868958}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1417321035
 Prefab:
   m_ObjectHideFlags: 0

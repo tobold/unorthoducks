@@ -35,7 +35,7 @@ namespace Unorthoducks
 			int r = Random.Range(0, spawnPoints.Length);
 			Vector3 spawnPoint = spawnPoints[r].transform.position;
 			Vector3 spawnPosition = new Vector3(spawnPoint.x,
-																					spawnPoint.y + 0.125f,
+																					spawnPoint.y + 0.2f,
 																					spawnPoint.z);
 			var newZombie = Instantiate(zombie, spawnPosition, Quaternion.identity) as Zombie;
 			newZombie.transform.parent = transform;

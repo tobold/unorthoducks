@@ -30,7 +30,7 @@ namespace Unorthoducks
 			if (this.gameObject.activeSelf) {
 				var x = Random.Range(-boardSize/2f, boardSize/2f);
 				var y = Random.Range(-boardSize/2f, boardSize/2f);
-				var newDuck = Instantiate (duck, new Vector3 (x, 0.125f, y),
+				var newDuck = Instantiate (duck, new Vector3 (x, 0.2f, y),
 					              Quaternion.identity) as Duck;
 				newDuck.transform.parent = transform;
 				numberDucks += 1;

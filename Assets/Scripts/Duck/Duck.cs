@@ -27,7 +27,7 @@ namespace Unorthoducks
     {
       var x = Random.Range(-boardSize/2f, boardSize/2f);
       var z = Random.Range(-boardSize/2f, boardSize/2f);
-      randPoint = new Vector3(x, 0.125f, z);
+      randPoint = new Vector3(x, 0.2f, z);
     }
 
     public void Update ()
