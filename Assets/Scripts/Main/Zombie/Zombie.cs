@@ -12,6 +12,7 @@ namespace Unorthoducks
 		{
 			zombieController.SetMovementController (this);
 			zombieController.FindEnemies();
+			Time.timeScale = 1f;
 		}
 
     public void Update ()
@@ -23,14 +24,15 @@ namespace Unorthoducks
 		public void Direction ()
 		{
 			GameObject chasedDuck = GetClosestEnemy(ducks);
-			if(chasedDuck) direction = chasedDuck.transform.position;
-    }
+			if(chasedDuck) direction = (chasedDuck.transform.position - transform.position).normalized;
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.15F);
+		}
 
     public void Move ()
     {
-      float step = 0.5f * Time.deltaTime;
-      transform.position = Vector3.MoveTowards(transform.position, direction, step);
-    }
+		float speed = 0.6f;
+		GetComponent<Rigidbody>().MovePosition(transform.position + (transform.forward * Time.deltaTime * speed));
+   }
 
     public void FindEnemies ()
     {
