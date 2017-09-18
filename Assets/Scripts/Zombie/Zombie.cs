@@ -12,13 +12,14 @@ namespace Unorthoducks
 		{
 			zombieController.SetMovementController (this);
 			zombieController.FindEnemies();
+			Time.timeScale = 1f;
 		}
 
-    public void FixedUpdate ()
+    public void Update ()
 		{
 			Direction();
-	        zombieController.Move();
-	    }
+      zombieController.Move();
+    }
 
 		public void Direction ()
 		{
@@ -29,9 +30,9 @@ namespace Unorthoducks
 
     public void Move ()
     {
-			float speed = 1f;
+		float speed = 0.6f;
 		GetComponent<Rigidbody>().MovePosition(transform.position + (transform.forward * Time.deltaTime * speed));
-    }
+   }
 
     public void FindEnemies ()
     {
