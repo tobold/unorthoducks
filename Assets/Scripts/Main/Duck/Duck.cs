@@ -9,6 +9,7 @@ namespace Unorthoducks
 	  private int boardSize;
     private Vector3 randPoint;
     public Zombie zombie;
+    public bool eliminated;
 
     public void Start ()
     {
@@ -58,10 +59,12 @@ namespace Unorthoducks
 
     void OnCollisionEnter (Collision col)
     {
-      if (col.gameObject.tag == "Projectile") {
+      if (col.gameObject.tag == "Projectile" && !eliminated) {
+        eliminated = true;
         ScoreManager.DuckKill();
         Destroy (this.gameObject);
-      } else if(col.gameObject.tag == "Zombie") {
+      } else if(col.gameObject.tag == "Zombie" && !eliminated) {
+        eliminated = true;
         ScoreManager.ZombieBiteDuck();
         Destroy (this.gameObject);
         TransformToZombie(transform.position);
