@@ -24,7 +24,7 @@ namespace Unorthoducks
 
 		public void SpawnFloor ()
 		{
-			var floor = Instantiate (landscape, new Vector3(0, -0.05f, 0),
+			var floor = Instantiate (landscape, new Vector3(0, -0.25f, 0),
 				Quaternion.identity) as GameObject;
 			Resize (floor);
 			floor.transform.parent = transform;
@@ -59,8 +59,8 @@ namespace Unorthoducks
 		private void Resize (GameObject floor)
 		{
 			var x = boardSize * 1.1;
-			var y = boardSize * 1.1;
-			floor.transform.localScale = new Vector3((float)x, 0.1f, (float)y);
+			var z = boardSize * 1.1;
+			floor.transform.localScale = new Vector3((float)x, 0.5f, (float)z);
 		}
   }
 }
