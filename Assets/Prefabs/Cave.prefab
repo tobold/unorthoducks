@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 4499996756872018}
   m_Layer: 0
   m_Name: CaveSpawnPoint
-  m_TagString: CaveSpawnPoint
+  m_TagString: ZombieSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

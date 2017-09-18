@@ -6,9 +6,9 @@ TagManager:
   tags:
   - Duck
   - Zombie
-  - CaveSpawnPoint
   - Projectile
   - Edge
+  - ZombieSpawn
   layers:
   - Default
   - TransparentFX

@@ -14,7 +14,7 @@ namespace Unorthoducks
 		private void Start () {
       numberZombies = 0;
 			controller.SetZombieSpawner (this);
-			spawnPoints = GameObject.FindGameObjectsWithTag("CaveSpawnPoint");
+			spawnPoints = GameObject.FindGameObjectsWithTag("ZombieSpawn");
 			foreach(GameObject point in spawnPoints) {
 				Debug.Log(point.transform.position);
 			}
