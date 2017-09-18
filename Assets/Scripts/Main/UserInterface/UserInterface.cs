@@ -10,7 +10,7 @@ namespace Unorthoducks
 
 		public void Update ()
 		{
-			scoreText.text = "Your score: " + ScoreManager.Score().ToString ();
+			scoreText.text = "SCORE: " + ScoreManager.Score().ToString ();
 		}
 	}
 }

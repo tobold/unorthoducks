@@ -21,7 +21,8 @@ namespace Unorthoducks
 			xCoord = Random.Range(-boardSize/2f, boardSize/2f);
 			zCoord = Random.Range(-boardSize/2f, boardSize/2f);
 			Vector3 randPoint = new Vector3(xCoord, 5f, zCoord);
-			Instantiate (puffCloud, randPoint, Quaternion.identity);
+			var cloud = Instantiate (puffCloud, randPoint, Quaternion.identity);
+			cloud.transform.parent = transform;
 		}
 	}
 }
