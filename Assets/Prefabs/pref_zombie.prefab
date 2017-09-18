@@ -122,3 +122,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ducks: []
+  direction: {x: 0, y: 0, z: 0}

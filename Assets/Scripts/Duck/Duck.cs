@@ -58,13 +58,13 @@ namespace Unorthoducks
 
     void OnCollisionEnter (Collision col)
     {
-      if (col.gameObject.name == "pref_projectile(Clone)") {
+      if (col.gameObject.tag == "Projectile") {
         Destroy (this.gameObject);
-      }
-      if(col.gameObject.name == "pref_zombie(Clone)")
-      {
+      } else if(col.gameObject.tag == "Zombie") {
         Destroy (this.gameObject);
         TransformToZombie(transform.position);
+      } else if(col.gameObject.tag == "Edge") {
+        ChangeDirection();
       }
     }
 

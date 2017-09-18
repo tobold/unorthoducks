@@ -41,7 +41,7 @@ namespace Unorthoducks
     {
       zombieController.FindEnemies();
 
-			if(col.gameObject.name == "pref_projectile(Clone)")
+			if(col.gameObject.tag == "Projectile")
       {
         Destroy (this.gameObject);
       }
