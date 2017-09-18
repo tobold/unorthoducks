@@ -24,7 +24,7 @@ namespace Unorthoducks
 		public void Direction ()
 		{
 			GameObject chasedDuck = GetClosestEnemy(ducks);
-			direction = (chasedDuck.transform.position - transform.position).normalized;
+			if(chasedDuck) direction = (chasedDuck.transform.position - transform.position).normalized;
 			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.15F);
 		}
 
@@ -45,6 +45,7 @@ namespace Unorthoducks
 
 			if(col.gameObject.tag == "Projectile")
       {
+				ScoreManager.ZombieKill();
         Destroy (this.gameObject);
       }
     }

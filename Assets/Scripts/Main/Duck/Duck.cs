@@ -4,24 +4,24 @@ namespace Unorthoducks
 {
   public class Duck : MonoBehaviour, IDuckMovementController
   {
-    public GameObject[] zombies;
+    private GameObject[] zombies;
     public DuckController duckController;
-	  public int boardSize;
-    public Vector3 randPoint;
+	  private int boardSize;
+    private Vector3 randPoint;
     public Zombie zombie;
 
     public void Start ()
-     {
-       boardSize = Settings.LandscapeSize ();
-       duckController.SetDuckMovementController (this);
-       float randomTime = Random.Range(1f, 5f);
-       InvokeRepeating("ChangeDirection", 0f, randomTime);
-     }
+    {
+      boardSize = Settings.LandscapeSize ();
+      duckController.SetDuckMovementController (this);
+      float randomTime = Random.Range(1f, 5f);
+      InvokeRepeating("ChangeDirection", 0f, randomTime);
+    }
 
-     public void ChangeDirection()
-     {
-         duckController.Direction();
-     }
+    public void ChangeDirection()
+    {
+      duckController.Direction();
+    }
 
     public void Direction ()
     {
@@ -59,8 +59,10 @@ namespace Unorthoducks
     void OnCollisionEnter (Collision col)
     {
       if (col.gameObject.tag == "Projectile") {
+        ScoreManager.DuckKill();
         Destroy (this.gameObject);
       } else if(col.gameObject.tag == "Zombie") {
+        ScoreManager.ZombieBiteDuck();
         Destroy (this.gameObject);
         TransformToZombie(transform.position);
       } else if(col.gameObject.tag == "Edge") {
