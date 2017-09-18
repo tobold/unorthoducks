@@ -59,6 +59,8 @@ namespace Unorthoducks
     void OnCollisionEnter (Collision col)
     {
       if (col.gameObject.tag == "Projectile") {
+        ScoreManager.DuckKill();
+        Debug.Log(ScoreManager.Score());
         Destroy (this.gameObject);
       } else if(col.gameObject.tag == "Zombie") {
         Destroy (this.gameObject);

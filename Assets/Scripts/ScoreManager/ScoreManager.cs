@@ -15,5 +15,10 @@ namespace Unorthoducks
     {
       return score;
     }
+
+    public static void DuckKill ()
+    {
+      score -= 10;
+    }
 	}
 }
