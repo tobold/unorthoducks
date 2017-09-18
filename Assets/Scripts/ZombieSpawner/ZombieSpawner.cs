@@ -14,11 +14,10 @@ namespace Unorthoducks
 		private void Start () {
       numberZombies = 0;
 			controller.SetZombieSpawner (this);
-			spawnPoints = GameObject.FindGameObjectsWithTag("ZombieSpawn");
-			foreach(GameObject point in spawnPoints) {
-				Debug.Log(point.transform.position);
+			if(this.gameObject.activeSelf) {
+				spawnPoints = GameObject.FindGameObjectsWithTag("ZombieSpawn");
+				InvokeRepeating("CreateZombieDucks", 1f, 2f);
 			}
-			InvokeRepeating("CreateZombieDucks", 1f, 2f);
 		}
 
 		private void CreateZombieDucks()
@@ -32,7 +31,7 @@ namespace Unorthoducks
 
 		public void Spawn ()
 		{
-			int r = Random.Range(0, spawnPoints.Length);
+			int r = Random.Range(1, spawnPoints.Length);
 			Vector3 spawnPoint = spawnPoints[r].transform.position;
 			Vector3 spawnPosition = new Vector3(spawnPoint.x,
 																					spawnPoint.y + 0.125f,

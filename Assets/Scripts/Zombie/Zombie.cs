@@ -43,6 +43,8 @@ namespace Unorthoducks
 
 			if(col.gameObject.tag == "Projectile")
       {
+				ScoreManager.ZombieKill();
+				Debug.Log(ScoreManager.Score());
         Destroy (this.gameObject);
       }
     }
