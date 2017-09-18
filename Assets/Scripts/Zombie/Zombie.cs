@@ -14,22 +14,23 @@ namespace Unorthoducks
 			zombieController.FindEnemies();
 		}
 
-    public void Update ()
+    public void FixedUpdate ()
 		{
 			Direction();
-      zombieController.Move();
-    }
+	        zombieController.Move();
+	    }
 
 		public void Direction ()
 		{
 			GameObject chasedDuck = GetClosestEnemy(ducks);
-			direction = chasedDuck.transform.position;
-    }
+			direction = (chasedDuck.transform.position - transform.position).normalized;
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.15F);
+		}
 
     public void Move ()
     {
-      float step = 0.5f * Time.deltaTime;
-      transform.position = Vector3.MoveTowards(transform.position, direction, step);
+			float speed = 1f;
+		GetComponent<Rigidbody>().MovePosition(transform.position + (transform.forward * Time.deltaTime * speed));
     }
 
     public void FindEnemies ()
