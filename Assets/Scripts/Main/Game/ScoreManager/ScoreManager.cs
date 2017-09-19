@@ -2,29 +2,28 @@ using System;
 
 namespace Unorthoducks
 {
-	[Serializable]
 	public class ScoreManager
 	{
-    public int score = 0;
+    private static int score = 0;
 
-		public void ZombieKill ()
+		public static void ZombieKill ()
 		{
 			score += 5;
 			GameManager.IncrementZombieKillCount();
 		}
 
-		public void DuckKill ()
+		public static void DuckKill ()
 		{
 			score -= 10;
 			GameManager.IncrementDeadDucks();
 		}
 
-		public void ZombieBiteDuck ()
+		public static void ZombieBiteDuck ()
 		{
 			GameManager.IncrementBittenDuck();
 		}
 
-    public int Score()
+    public static int Score()
     {
       return score;
     }
