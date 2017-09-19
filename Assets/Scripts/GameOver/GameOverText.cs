@@ -6,7 +6,6 @@ using UnityEngine.UI;
 namespace Unorthoducks
 {
 	public class GameOverText : MonoBehaviour {
-
 		public Text finalScore;
 
 		void Start () {
