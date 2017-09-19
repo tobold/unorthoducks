@@ -7,7 +7,6 @@ namespace Unorthoducks
     public GameObjectFinder objectFinder;
     public BoardLocationFinder locationFinder;
     public DuckController duckController;
-    public ScoreManager scoreManager;
     public Zombie zombie;
     private bool eliminated;
     private Vector3 randPoint;
@@ -59,11 +58,11 @@ namespace Unorthoducks
     {
       if (col.gameObject.tag == "Projectile" && !eliminated) {
         eliminated = true;
-        scoreManager.DuckKill();
+        ScoreManager.DuckKill();
         Destroy (this.gameObject);
       } else if(col.gameObject.tag == "Zombie" && !eliminated) {
         eliminated = true;
-        scoreManager.ZombieBiteDuck();
+        ScoreManager.ZombieBiteDuck();
         Destroy (this.gameObject);
         TransformToZombie(transform.position);
       } else if(col.gameObject.tag == "Edge") {

@@ -6,11 +6,10 @@ using UnityEngine.UI;
 namespace Unorthoducks
 {
 	public class GameOverText : MonoBehaviour {
-		public ScoreManager scoreManager;
 		public Text finalScore;
 
 		void Start () {
-			finalScore.text = "Gameover! You scored: " + scoreManager.Score().ToString ();
+			finalScore.text = "Gameover! You scored: " + ScoreManager.Score().ToString ();
 		}
 
 		void Update () {

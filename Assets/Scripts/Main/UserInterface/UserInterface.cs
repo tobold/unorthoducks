@@ -7,11 +7,10 @@ namespace Unorthoducks
 	public class UserInterface : MonoBehaviour
 	{
     public Text scoreText;
-		public ScoreManager scoreManager;
 
 		public void Update ()
 		{
-			scoreText.text = "SCORE: " + scoreManager.Score().ToString ();
+			scoreText.text = "SCORE: " + ScoreManager.Score().ToString ();
 		}
 	}
 }
