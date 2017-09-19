@@ -4,7 +4,7 @@ namespace Unorthoducks
 {
   public class Duck : MonoBehaviour, IDuckMovementController
   {
-    private GameObject[] zombies;
+    public GameObjectFinder objectFinder;
     public DuckController duckController;
     public ScoreManager scoreManager;
 	  private int boardSize;
@@ -34,18 +34,12 @@ namespace Unorthoducks
 
     public void Update ()
     {
-      FindEnemies();
       duckController.Move();
-    }
-
-    public void FindEnemies ()
-    {
-      zombies = GameObject.FindGameObjectsWithTag("Zombie");
     }
 
     public void Move ()
     {
-      GameObject closestZombie = GetClosestEnemy(zombies);
+      GameObject closestZombie = objectFinder.GetClosestObject("Zombie", transform.position, 2f);
       if (closestZombie == null)
       {
         float step = 0.5f * Time.deltaTime;
@@ -78,26 +72,6 @@ namespace Unorthoducks
     {
       var newZombie = Instantiate(zombie, position, Quaternion.identity) as Zombie;
       newZombie.transform.parent = transform.parent;
-    }
-
-    private GameObject GetClosestEnemy(GameObject[] enemies)
-    {
-      GameObject zombieMin = null;
-      float minDist = 2;
-      Vector3 currentPos = transform.position;
-      foreach (GameObject zombie in enemies)
-      {
-				if (zombie)
-				{
-					float dist = Vector3.Distance(zombie.transform.position, currentPos);
-					if (dist < minDist)
-					{
-					  zombieMin = zombie;
-					  minDist = dist;
-					}
-				}
-      }
-      return zombieMin;
     }
   }
 }

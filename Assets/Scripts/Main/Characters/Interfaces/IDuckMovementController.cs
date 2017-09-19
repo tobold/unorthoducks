@@ -4,6 +4,5 @@ namespace Unorthoducks
 	{
 		void Move ();
 		void Direction ();
-		void FindEnemies ();
 	}
 }
