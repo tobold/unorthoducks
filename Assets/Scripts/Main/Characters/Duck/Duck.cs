@@ -6,6 +6,7 @@ namespace Unorthoducks
   {
     private GameObject[] zombies;
     public DuckController duckController;
+    public ScoreManager scoreManager;
 	  private int boardSize;
     private Vector3 randPoint;
     public Zombie zombie;
@@ -13,7 +14,7 @@ namespace Unorthoducks
 
     public void Start ()
     {
-      boardSize = Settings.LandscapeSize ();
+      int boardSize = Settings.LandscapeSize ();
       duckController.SetDuckMovementController (this);
       float randomTime = Random.Range(1f, 5f);
       InvokeRepeating("ChangeDirection", 0f, randomTime);
@@ -61,11 +62,11 @@ namespace Unorthoducks
     {
       if (col.gameObject.tag == "Projectile" && !eliminated) {
         eliminated = true;
-        ScoreManager.DuckKill();
+        scoreManager.DuckKill();
         Destroy (this.gameObject);
       } else if(col.gameObject.tag == "Zombie" && !eliminated) {
         eliminated = true;
-        ScoreManager.ZombieBiteDuck();
+        scoreManager.ZombieBiteDuck();
         Destroy (this.gameObject);
         TransformToZombie(transform.position);
       } else if(col.gameObject.tag == "Edge") {

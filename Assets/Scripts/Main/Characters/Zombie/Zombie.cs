@@ -6,6 +6,7 @@ namespace Unorthoducks
 	{
     public GameObject[] ducks;
     public ZombieController zombieController;
+		public ScoreManager scoreManager;
 		public Vector3 direction;
 
     private void OnEnable ()
@@ -45,7 +46,7 @@ namespace Unorthoducks
 
 			if(col.gameObject.tag == "Projectile")
       {
-				ScoreManager.ZombieKill();
+				scoreManager.ZombieKill();
         Destroy (this.gameObject);
       }
     }
