@@ -13,12 +13,11 @@ namespace Unorthoducks
 
     public void FixedUpdate()
     {
-      Debug.Log(GameManager.DeadDucks());
       if(GameManager.IsGameOver()) {
         Time.timeScale = 0;
         SceneManager.LoadScene("GameOver");
       } else if(GameManager.LevelUp()) {
-        Debug.Log("Level finished");
+        // Debug.Log("Level finished");
       }
     }
 

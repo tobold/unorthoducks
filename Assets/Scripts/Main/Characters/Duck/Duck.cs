@@ -9,7 +9,7 @@ namespace Unorthoducks
     public DuckController duckController;
     public Zombie zombie;
     private bool eliminated;
-    private Vector3 randPoint;
+    public Vector3 randPoint;
 
     public void Start ()
     {
@@ -40,6 +40,15 @@ namespace Unorthoducks
       transform.position = Vector3.MoveTowards(transform.position,
                                                ChooseDirection(closestZombie),
                                                ChooseSpeed(escapingZombie) * Time.deltaTime);
+      transform.rotation = Quaternion.Slerp(transform.rotation, GetRotation(closestZombie), 0.2F);
+    }
+
+    private Quaternion GetRotation(GameObject closestZombie)
+    {
+      if(closestZombie) {
+        return Quaternion.LookRotation(transform.position - closestZombie.transform.position);
+      }
+      return Quaternion.LookRotation(randPoint);
     }
 
     private float ChooseSpeed(bool escapingZombie)

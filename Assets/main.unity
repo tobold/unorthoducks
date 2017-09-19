@@ -1048,7 +1048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d62b8cdd2104dadabfcb5d3d1f5305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landscape: {fileID: 1278734462694684, guid: e54c9196acd2b4b14879c531c993f296, type: 2}
+  landscape: {fileID: 1314276260712566, guid: 4c4e19bc3c0d54d9bab714ae53c61abc, type: 2}
   cave: {fileID: 1143281586046412, guid: 05ddef888bf9446fcade93af85a76315, type: 2}
   boardSize: 0
 --- !u!1 &1257023613
@@ -1093,7 +1093,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duck: {fileID: 114890819691841448, guid: d8801f10be98544fdba95b5d471b6483, type: 2}
   numberDucks: 0
-  boardSize: 0
 --- !u!1001 &1316049127
 Prefab:
   m_ObjectHideFlags: 0
@@ -1660,7 +1659,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duck: {fileID: 114890819691841448, guid: d8801f10be98544fdba95b5d471b6483, type: 2}
   numberDucks: 0
-  boardSize: 0
 --- !u!1 &1837816055
 GameObject:
   m_ObjectHideFlags: 0
