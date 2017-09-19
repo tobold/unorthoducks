@@ -7,9 +7,11 @@ namespace Unorthoducks
     public GameObjectFinder objectFinder;
     public ZombieController zombieController;
 		public Vector3 direction;
+		public bool eliminated;
 
-    private void OnEnable ()
+    private void Start ()
 		{
+			eliminated = false;
 			zombieController.SetMovementController (this);
 		}
 
@@ -34,8 +36,9 @@ namespace Unorthoducks
 
 		void OnCollisionEnter (Collision col)
     {
-			if(col.gameObject.tag == "Projectile")
+			if(col.gameObject.tag == "Projectile" && !eliminated)
       {
+				eliminated = true;
 				ScoreManager.ZombieKill();
         Destroy (this.gameObject);
       }
