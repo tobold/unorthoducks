@@ -13,7 +13,6 @@ namespace Unorthoducks
 
 		private void Start () {
 			controller.SetZombieSpawner (this);
-      Init();
 		}
 
 		public void Init() {
