@@ -34,7 +34,7 @@ namespace Unorthoducks
 		{
 			var x = Random.Range(-boardSize/1.5f, boardSize/1.5f);
 			var z = Random.Range(-boardSize/1.5f, boardSize/1.5f);
-			randPoint = new Vector3(x, 5f, z);
+			randPoint = new Vector3(x, 3f, z);
 		}
 	}
 }

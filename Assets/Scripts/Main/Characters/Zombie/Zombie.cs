@@ -28,7 +28,7 @@ namespace Unorthoducks
 
     public void Move ()
     {
-		float speed = 0.6f;
+		float speed = 0.5f;
 		GetComponent<Rigidbody>().MovePosition(transform.position + (transform.forward * Time.deltaTime * speed));
    }
 
