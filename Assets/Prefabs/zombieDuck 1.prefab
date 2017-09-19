@@ -2907,5 +2907,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bde0ea91f5d34e0b9ec62a4ad413e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ducks: []
+  objectFinder: {fileID: 114689463901825842, guid: 27ed024d4520f4635aa9958fa7a244ed,
+    type: 2}
   direction: {x: 0, y: 0, z: 0}

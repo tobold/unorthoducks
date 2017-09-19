@@ -8,11 +8,6 @@ namespace Unorthoducks
   {
 		private IDuckMovementController zombieMovementController;
 
-    public void FindEnemies ()
-		{
-      zombieMovementController.FindEnemies();
-		}
-
     public void Move ()
     {
       zombieMovementController.Move();

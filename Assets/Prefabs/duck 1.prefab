@@ -896,9 +896,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c8bb97f3ce748e1990d6a8f3e2d127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombies: []
-  boardSize: 0
-  randPoint: {x: 0, y: 0, z: 0}
+  objectFinder: {fileID: 114689463901825842, guid: 27ed024d4520f4635aa9958fa7a244ed,
+    type: 2}
+  locationFinder: {fileID: 114245300326716850, guid: 6bea84cdd374a453b9a205c5a902d465,
+    type: 2}
   zombie: {fileID: 114374164475417104, guid: 4e13af43a2c1547aaa3d6fc0f4e42017, type: 2}
 --- !u!136 &136335258934848104
 CapsuleCollider:
