@@ -15,7 +15,7 @@ namespace Unorthoducks
     {
       boardSize = Settings.LandscapeSize ();
       duckController.SetDuckMovementController (this);
-      float randomTime = Random.Range(1f, 5f);
+      float randomTime = Random.Range(2f, 5f);
       InvokeRepeating("ChangeDirection", 0f, randomTime);
     }
 
@@ -49,11 +49,13 @@ namespace Unorthoducks
       {
         float step = 0.5f * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, randPoint, step);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(randPoint), 0.2F);
       }
       else
       {
         float step = -0.3f * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, closestZombie.transform.position, step);
+        GetComponent<Rigidbody>().transform.position = Vector3.MoveTowards(transform.position, closestZombie.transform.position, step);
+        GetComponent<Rigidbody>().transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(transform.position - closestZombie.transform.position), 0.2F);
       }
     }
 

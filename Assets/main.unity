@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d62b8cdd2104dadabfcb5d3d1f5305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landscape: {fileID: 1278734462694684, guid: e54c9196acd2b4b14879c531c993f296, type: 2}
+  landscape: {fileID: 1314276260712566, guid: 4c4e19bc3c0d54d9bab714ae53c61abc, type: 2}
   cave: {fileID: 1143281586046412, guid: 05ddef888bf9446fcade93af85a76315, type: 2}
   boardSize: 0
 --- !u!1 &434690350
@@ -750,7 +750,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &934129554
 Transform:
   m_ObjectHideFlags: 0
@@ -766,6 +766,7 @@ Transform:
   - {fileID: 1359220003}
   - {fileID: 243180725}
   - {fileID: 1127290048}
+  - {fileID: 1837816056}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -838,7 +839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1155874949
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1090,7 +1091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1336a28a88402472892cfbea72da87b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duck: {fileID: 0}
+  duck: {fileID: 114890819691841448, guid: d8801f10be98544fdba95b5d471b6483, type: 2}
   numberDucks: 0
   boardSize: 0
 --- !u!1001 &1316049127
@@ -1174,7 +1175,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 384a0d8cc71cef74a873b3353337ea2c, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 384a0d8cc71cef74a873b3353337ea2c, type: 2}
@@ -1194,7 +1195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1359220003
 Transform:
   m_ObjectHideFlags: 0
@@ -1271,7 +1272,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: bf30d577eead1ef40bcf2b404289daf4, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf30d577eead1ef40bcf2b404289daf4, type: 2}
@@ -1660,6 +1661,46 @@ MonoBehaviour:
   duck: {fileID: 114890819691841448, guid: d8801f10be98544fdba95b5d471b6483, type: 2}
   numberDucks: 0
   boardSize: 0
+--- !u!1 &1837816055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1837816056}
+  - component: {fileID: 1837816057}
+  m_Layer: 0
+  m_Name: GameState (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1837816056
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1837816055}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 934129554}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1837816057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1837816055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10624192b7d14453b2459b2a8a32f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1878411110
 GameObject:
   m_ObjectHideFlags: 0
