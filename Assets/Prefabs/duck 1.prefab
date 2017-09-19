@@ -71,10 +71,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4333384463904938}
   - component: {fileID: 33435286843659364}
-  - component: {fileID: 65727483544139100}
   - component: {fileID: 23754402531496242}
   - component: {fileID: 95999140029355250}
   - component: {fileID: 114890819691841448}
+  - component: {fileID: 65727483544139100}
   - component: {fileID: 54574718860051092}
   m_Layer: 0
   m_Name: duck 1
@@ -901,6 +901,7 @@ MonoBehaviour:
   locationFinder: {fileID: 114245300326716850, guid: 6bea84cdd374a453b9a205c5a902d465,
     type: 2}
   zombie: {fileID: 114374164475417104, guid: 4e13af43a2c1547aaa3d6fc0f4e42017, type: 2}
+  randPoint: {x: 0, y: 0, z: 0}
 --- !u!136 &136335258934848104
 CapsuleCollider:
   m_ObjectHideFlags: 1

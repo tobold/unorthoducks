@@ -37,8 +37,8 @@ namespace Unorthoducks
     {
       GameObject closestZombie = objectFinder.GetClosestObject("Zombie", transform.position, 2f);
       bool escapingZombie = closestZombie ? true : false;
-      transform.position = Vector3.MoveTowards(transform.position,
-                                               ChooseDirection(closestZombie),
+      GetComponent<Rigidbody>().transform.position = Vector3.MoveTowards(transform.position,
+                                                    ChooseDirection(closestZombie),
                                                ChooseSpeed(escapingZombie) * Time.deltaTime);
       transform.rotation = Quaternion.Slerp(transform.rotation, GetRotation(closestZombie), 0.2F);
     }
