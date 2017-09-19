@@ -5,16 +5,15 @@ namespace Unorthoducks
   public class Duck : MonoBehaviour, IDuckMovementController
   {
     public GameObjectFinder objectFinder;
+    public BoardLocationFinder locationFinder;
     public DuckController duckController;
     public ScoreManager scoreManager;
-	  private int boardSize;
-    private Vector3 randPoint;
     public Zombie zombie;
-    public bool eliminated;
+    private bool eliminated;
+    private Vector3 randPoint;
 
     public void Start ()
     {
-      int boardSize = Settings.LandscapeSize ();
       duckController.SetDuckMovementController (this);
       float randomTime = Random.Range(1f, 5f);
       InvokeRepeating("ChangeDirection", 0f, randomTime);
@@ -27,9 +26,7 @@ namespace Unorthoducks
 
     public void Direction ()
     {
-      var x = Random.Range(-boardSize/2f, boardSize/2f);
-      var z = Random.Range(-boardSize/2f, boardSize/2f);
-      randPoint = new Vector3(x, 0.2f, z);
+      randPoint = locationFinder.RandomLocation(0.2f);
     }
 
     public void Update ()
@@ -40,16 +37,22 @@ namespace Unorthoducks
     public void Move ()
     {
       GameObject closestZombie = objectFinder.GetClosestObject("Zombie", transform.position, 2f);
-      if (closestZombie == null)
-      {
-        float step = 0.5f * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, randPoint, step);
-      }
-      else
-      {
-        float step = -0.3f * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, closestZombie.transform.position, step);
-      }
+      bool escapingZombie = closestZombie ? true : false;
+      transform.position = Vector3.MoveTowards(transform.position,
+                                               ChooseDirection(closestZombie),
+                                               ChooseSpeed(escapingZombie) * Time.deltaTime);
+    }
+
+    private float ChooseSpeed(bool escapingZombie)
+    {
+      if(escapingZombie) return -0.3f;
+      else return 0.5f;
+    }
+
+    private Vector3 ChooseDirection(GameObject closestZombie)
+    {
+      if(closestZombie) return closestZombie.transform.position;
+      else return randPoint;
     }
 
     void OnCollisionEnter (Collision col)
