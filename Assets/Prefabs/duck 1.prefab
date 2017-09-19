@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 95999140029355250}
   - component: {fileID: 114890819691841448}
   - component: {fileID: 54574718860051092}
-  - component: {fileID: 82992049107216596}
+  - component: {fileID: 82014278326804978}
   m_Layer: 0
   m_Name: duck 1
   m_TagString: Duck
@@ -869,7 +869,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!82 &82992049107216596
+--- !u!82 &82014278326804978
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -879,14 +879,14 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b2ca66ec31a99443b83519ec30ef6a6d, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.321
+  m_PlayOnAwake: 0
+  m_Volume: 0.416
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 113
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

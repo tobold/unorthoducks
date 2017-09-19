@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Unorthoducks
 {
+  [RequireComponent(typeof(AudioSource))]
   public class Duck : MonoBehaviour, IDuckMovementController
   {
     public GameObjectFinder objectFinder;
@@ -83,6 +84,8 @@ namespace Unorthoducks
     {
       var newZombie = Instantiate(zombie, position, Quaternion.identity) as Zombie;
       newZombie.transform.parent = transform.parent;
+      AudioSource[] sounds = newZombie.GetComponents<AudioSource>();
+      sounds[1].Play();
     }
   }
 }
