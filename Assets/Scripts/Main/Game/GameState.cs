@@ -10,6 +10,7 @@ namespace Unorthoducks
     public void Start()
     {
       GameManager.BeginRound();
+      zombieSpawner.Init();
     }
 
     public void FixedUpdate()
@@ -22,6 +23,5 @@ namespace Unorthoducks
         zombieSpawner.Init();
       }
     }
-
   }
 }

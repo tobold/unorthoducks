@@ -31,7 +31,7 @@ namespace Unorthoducks
 
 		public static float GetZombiesToSpawn()
 		{
-			return (roundLength / spawnRate);
+			return (roundLength / initialSpawnRate);
 		}
 
 		public static float GetSpawnRate()

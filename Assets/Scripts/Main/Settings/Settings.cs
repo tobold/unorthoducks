@@ -4,7 +4,6 @@ namespace Unorthoducks
 {
 	public class Settings
 	{
-
 		public const int duckCount = 8;
 		public const int size = 5;
 		public const float roundLength = 15f;
