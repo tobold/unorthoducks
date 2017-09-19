@@ -27,7 +27,7 @@ namespace Unorthoducks
       Vector3 bulletVelocity = new Vector3((float)t.up.x, (float)t.up.y, (float)t.up.z);
 
       var bullet = Instantiate (projectile, bulletExit,
-				Quaternion.identity) as Projectile;
+				Quaternion.LookRotation(turret.transform.up)) as Projectile;
       bullet.transform.parent = turret.transform;
       bullet.GetComponent<Rigidbody> ().velocity = bulletVelocity * 20;
     }
