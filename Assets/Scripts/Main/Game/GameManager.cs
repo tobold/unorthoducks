@@ -4,12 +4,45 @@ namespace Unorthoducks
 {
 	public class GameManager
 	{
-		// hardcoded!
-		private static int zombiesToKill = 1;
-		private static int ducks = 8;
+		private static int roundNumber = 0;
 
-		private static int zombieKillCount = 0;
+		private static int ducks = Settings.GetInitialDuckCount();
+		private static float initialSpawnRate = Settings.GetInitialSpawnRate();
+		private static float roundLength = Settings.RoundLength();
+
 		private static int deadDucks = 0;
+
+		private static float zombiesToKill;
+		private static int zombieKillCount;
+		private static float spawnRate;
+
+		public static void BeginRound()
+		{
+			zombieKillCount = 0;
+			spawnRate = initialSpawnRate * (float)(Math.Pow(0.80, roundNumber));
+			zombiesToKill = GetZombiesToSpawn();
+		}
+
+		public static void EndRound()
+		{
+			roundNumber ++;
+			BeginRound();
+		}
+
+		public static float GetZombiesToSpawn()
+		{
+			return (roundLength / spawnRate);
+		}
+
+		public static float GetSpawnRate()
+		{
+			return spawnRate;
+		}
+
+		public static int RoundNumber()
+		{
+			return roundNumber + 1;
+		}
 
 		public static void IncrementZombieKillCount()
 		{
@@ -44,9 +77,9 @@ namespace Unorthoducks
 			} else return false;
 		}
 
-		public static bool LevelUp()
+		public static bool LevelComplete()
 		{
-			if(zombieKillCount >= 0) {
+			if(zombieKillCount >= zombiesToKill) {
 				return true;
 			} else return false;
 		}

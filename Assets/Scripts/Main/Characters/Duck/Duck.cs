@@ -53,8 +53,8 @@ namespace Unorthoducks
 
     private float ChooseSpeed(bool escapingZombie)
     {
-      if(escapingZombie) return -0.3f;
-      else return 0.5f;
+      if(escapingZombie) return -0.5f;
+      else return 0.4f;
     }
 
     private Vector3 ChooseDirection(GameObject closestZombie)

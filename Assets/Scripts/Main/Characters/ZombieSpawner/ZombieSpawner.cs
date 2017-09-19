@@ -12,17 +12,22 @@ namespace Unorthoducks
 		public int numberZombies;
 
 		private void Start () {
-      numberZombies = 0;
 			controller.SetZombieSpawner (this);
+      Init();
+		}
+
+		public void Init() {
+			CancelInvoke();
+			numberZombies = 0;
 			if(this.gameObject.activeSelf) {
 				spawnPoints = GameObject.FindGameObjectsWithTag("ZombieSpawn");
-				InvokeRepeating("CreateZombieDucks", 1f, 2f);
+				InvokeRepeating("CreateZombieDucks", 2f, GameManager.GetSpawnRate());
 			}
 		}
 
 		private void CreateZombieDucks()
 		{
-			if(numberZombies < 4 && this.gameObject.activeSelf)
+			if(numberZombies < GameManager.GetZombiesToSpawn() && this.gameObject.activeSelf)
       {
         controller.Spawn ();
         numberZombies += 1;
