@@ -13,7 +13,7 @@ namespace Unorthoducks
       zombieSpawner.Init();
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
       if(GameManager.IsGameOver()) {
         Time.timeScale = 0;
