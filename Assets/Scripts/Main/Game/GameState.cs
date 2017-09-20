@@ -8,6 +8,7 @@ namespace Unorthoducks
   {
     public ZombieSpawner zombieSpawner;
     public DuckSpawner duckSpawner;
+    public int ducks;
 
     public void Start()
     {
@@ -28,6 +29,7 @@ namespace Unorthoducks
         Invoke("Restart", 1f);
       } else if(GameManager.LevelComplete()) {
         GameManager.EndRound();
+        ScoreManager.AddDuckSurvivalBonus();
         zombieSpawner.Init();
       }
     }
