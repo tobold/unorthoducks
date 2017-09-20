@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
 
 namespace Unorthoducks
 {
 	public class ScoreManager
 	{
-    private static int score = 0;
+		private static int score = 0;
+		private static List<int> allScores = new List<int>();
 
 		public static void ZombieKill ()
 		{
@@ -23,9 +25,19 @@ namespace Unorthoducks
 			GameManager.IncrementBittenDuck();
 		}
 
-    public static int Score()
-    {
-      return score;
-    }
+		public static int Score()
+		{
+			return score;
+		}
+
+		public static void SaveScore()
+		{
+			allScores.Add(score);
+		}
+
+		public static List<int> AllScores()
+		{
+			return allScores;
+		}
 	}
 }
