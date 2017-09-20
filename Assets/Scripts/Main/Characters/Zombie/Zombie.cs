@@ -30,9 +30,9 @@ namespace Unorthoducks
 
     public void Move ()
     {
-		float speed = 0.5f;
-		GetComponent<Rigidbody>().MovePosition(transform.position + (transform.forward * Time.deltaTime * speed));
-   }
+			float speed = 0.5f;
+			GetComponent<Rigidbody>().MovePosition(transform.position + (transform.forward * Time.deltaTime * speed));
+    }
 
 		void OnCollisionEnter (Collision col)
     {
