@@ -7,16 +7,18 @@ namespace Unorthoducks
   {
     public GameObjectFinder objectFinder;
     public BoardLocationFinder locationFinder;
+    public BoardDirectionFinder directionFinder;
     public DuckController duckController;
     public Zombie zombie;
+    public float duckSpeed;
     private bool eliminated;
     public Vector3 randPoint;
 
     public void Start ()
     {
+      duckSpeed = 0.5f;
       duckController.SetDuckMovementController (this);
-      float randomTime = Random.Range(1f, 5f);
-      InvokeRepeating("ChangeDirection", 0f, randomTime);
+      ChangeDirection();
       float randomQuackTime = Random.Range(1f, 6f);
       Invoke("Quack", randomQuackTime);
     }
@@ -37,21 +39,26 @@ namespace Unorthoducks
 
     public void Direction ()
     {
-      randPoint = locationFinder.RandomLocation(0.2f, 75f);
+      randPoint = locationFinder.RandomLocation(0.2f, 65f);
     }
 
-    public void Update ()
+    public void FixedUpdate ()
     {
       duckController.Move();
     }
 
     public void Move ()
     {
-      GameObject closestZombie = objectFinder.GetClosestObject("Zombie", transform.position, 2f);
-      bool escapingZombie = closestZombie ? true : false;
-      float speed = 0.5f;
-      GetComponent<Rigidbody>().MovePosition(transform.position + (transform.forward * Time.deltaTime * speed));
-      transform.rotation = Quaternion.Slerp(transform.rotation, GetRotation(closestZombie), 0.2F);
+      GameObject closestZombie = objectFinder.GetClosestObject("Zombie", transform.position, 1f);
+      Vector3 movePosition;
+      if(closestZombie == null) {
+        movePosition = directionFinder.Towards(transform, randPoint, duckSpeed);
+        if(locationFinder.AlmostEqual(transform.position, randPoint, 0.1f)) ChangeDirection();
+      } else {
+        movePosition = directionFinder.Forwards(transform, duckSpeed);
+      }
+      GetComponent<Rigidbody>().MovePosition(movePosition);
+      transform.rotation = Quaternion.Slerp(transform.rotation, GetRotation(closestZombie), 0.5f);
     }
 
     private Quaternion GetRotation(GameObject closestZombie)
@@ -59,13 +66,7 @@ namespace Unorthoducks
       if(closestZombie) {
         return Quaternion.LookRotation(transform.position - closestZombie.transform.position);
       }
-      return Quaternion.LookRotation(randPoint);
-    }
-
-    private float ChooseSpeed(bool escapingZombie)
-    {
-      if(escapingZombie) return -0.5f;
-      else return 0.4f;
+      return Quaternion.LookRotation(randPoint - transform.position);
     }
 
     private Vector3 ChooseDirection(GameObject closestZombie)
@@ -77,17 +78,21 @@ namespace Unorthoducks
     void OnCollisionEnter (Collision col)
     {
       if (col.gameObject.tag == "Projectile" && !eliminated) {
-        eliminated = true;
         ScoreManager.DuckKill();
-        Destroy (this.gameObject);
+        KillDuck();
       } else if(col.gameObject.tag == "Zombie" && !eliminated) {
-        eliminated = true;
         ScoreManager.ZombieBiteDuck();
-        Destroy (this.gameObject);
+        KillDuck();
         TransformToZombie(transform.position);
-      } else if(col.gameObject.tag == "Edge") {
+      } else if(col.gameObject.tag == "Duck") {
         ChangeDirection();
       }
+    }
+
+    void KillDuck()
+    {
+      eliminated = true;
+      Destroy (this.gameObject);
     }
 
     void TransformToZombie (Vector3 position)

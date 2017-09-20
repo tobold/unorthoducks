@@ -34,9 +34,6 @@ namespace Unorthoducks
 		public void ChangeDirection ()
 		{
 			randPoint = locationFinder.RandomLocation(3f, 100f);
-			// var x = Random.Range(-boardSize/1.5f, boardSize/1.5f);
-			// var z = Random.Range(-boardSize/1.5f, boardSize/1.5f);
-			// randPoint = new Vector3(x, 3f, z);
 		}
 	}
 }
