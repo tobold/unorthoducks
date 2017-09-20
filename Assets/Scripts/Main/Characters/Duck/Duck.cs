@@ -12,9 +12,12 @@ namespace Unorthoducks
     public DuckController duckController;
     public Zombie zombie;
     public float duckSpeed;
-    private bool eliminated;
+    private bool eliminated, escapingZombie;
     public Vector3 randPoint;
-    private float lastUpdate = 0.0f, currentTime = 0.0f, timeToWait = 0.5f;
+    private Quaternion currentRotation;
+    private float currentTime;
+    private float lastRotationUpdate = 0.0f, escapeTime = 0.2f;
+    private float lastDirectionUpdate = 0.0f, timeToWait = 0.5f;
 
     public void Start ()
     {
@@ -42,10 +45,10 @@ namespace Unorthoducks
     public void Direction ()
     {
       currentTime = Time.time;
-      if(currentTime - lastUpdate > timeToWait)
+      if(currentTime - lastDirectionUpdate > timeToWait)
       {
         randPoint = locationFinder.RandomLocation(0.2f, 65f);
-        lastUpdate = Time.time;
+        lastDirectionUpdate = currentTime;
       }
     }
 
@@ -63,17 +66,24 @@ namespace Unorthoducks
         movePosition = directionFinder.Towards(transform, randPoint, duckSpeed);
         if(locationFinder.AlmostEqual(transform.position, randPoint, 0.1f)) ChangeDirection();
       }
+      GetRotation(closestZombies);
       GetComponent<Rigidbody>().MovePosition(movePosition);
-      transform.rotation = Quaternion.Slerp(transform.rotation, GetRotation(closestZombies), 0.5f);
+      transform.rotation = Quaternion.Slerp(transform.rotation, currentRotation, 0.5f);
     }
 
-    private Quaternion GetRotation(List<GameObject> closestZombies)
+    private void GetRotation(List<GameObject> closestZombies)
     {
+      currentTime = Time.time;
+      if(currentTime - lastRotationUpdate > timeToWait) escapingZombie = false;
+      if(escapingZombie) return;
       if(closestZombies.Count > 0) {
+        escapingZombie = true;
+        lastRotationUpdate = currentTime;
         Vector3 averagePosition = directionFinder.AveragePosition(closestZombies, transform);
-        return Quaternion.LookRotation(transform.position - averagePosition);
+        currentRotation = Quaternion.LookRotation(transform.position - averagePosition);
+      } else {
+        currentRotation = Quaternion.LookRotation(randPoint - transform.position);
       }
-      return Quaternion.LookRotation(randPoint - transform.position);
     }
 
     void OnCollisionEnter (Collision col)
