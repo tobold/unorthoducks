@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Unorthoducks
 {
@@ -16,5 +17,16 @@ namespace Unorthoducks
       movePosition.z = Mathf.MoveTowards(myTransform.position.z, newLocation.z, speed * Time.deltaTime);
       return movePosition;
     }
+
+		public Vector3 AveragePosition(List<GameObject> objects, Transform myTransform)
+		{
+			Vector3 averagePosition;
+			Vector3 sum = new Vector3(0, 0, 0);
+			foreach(GameObject obj in objects) {
+				sum += obj.transform.position;
+			}
+			averagePosition = sum / objects.Count;
+			return averagePosition;
+		}
   }
 }

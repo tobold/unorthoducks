@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Unorthoducks
 {
@@ -11,9 +12,12 @@ namespace Unorthoducks
     public DuckController duckController;
     public Zombie zombie;
     public float duckSpeed;
-    private bool eliminated;
+    private bool eliminated, escapingZombie;
     public Vector3 randPoint;
-    private float lastUpdate = 0.0f, currentTime = 0.0f, timeToWait = 0.5f;
+    private Quaternion currentRotation;
+    private float currentTime;
+    private float lastRotationUpdate = 0.0f, escapeTime = 0.2f;
+    private float lastDirectionUpdate = 0.0f, timeToWait = 0.5f;
 
     public void Start ()
     {
@@ -41,10 +45,10 @@ namespace Unorthoducks
     public void Direction ()
     {
       currentTime = Time.time;
-      if(currentTime - lastUpdate > timeToWait)
+      if(currentTime - lastDirectionUpdate > timeToWait)
       {
         randPoint = locationFinder.RandomLocation(0.2f, 65f);
-        lastUpdate = Time.time;
+        lastDirectionUpdate = currentTime;
       }
     }
 
@@ -55,24 +59,31 @@ namespace Unorthoducks
 
     public void Move ()
     {
-      GameObject closestZombie = objectFinder.GetClosestObject("Zombie", transform.position, 1f);
+      List<GameObject> closestZombies = objectFinder.GetClosestObjects("Zombie", transform.position, 1f);
       Vector3 movePosition;
-      if(closestZombie == null) {
+      if(closestZombies.Count > 0) movePosition = directionFinder.Forwards(transform, duckSpeed);
+      else {
         movePosition = directionFinder.Towards(transform, randPoint, duckSpeed);
         if(locationFinder.AlmostEqual(transform.position, randPoint, 0.1f)) ChangeDirection();
-      } else {
-        movePosition = directionFinder.Forwards(transform, duckSpeed);
       }
+      GetRotation(closestZombies);
       GetComponent<Rigidbody>().MovePosition(movePosition);
-      transform.rotation = Quaternion.Slerp(transform.rotation, GetRotation(closestZombie), 0.5f);
+      transform.rotation = Quaternion.Slerp(transform.rotation, currentRotation, 0.5f);
     }
 
-    private Quaternion GetRotation(GameObject closestZombie)
+    private void GetRotation(List<GameObject> closestZombies)
     {
-      if(closestZombie) {
-        return Quaternion.LookRotation(transform.position - closestZombie.transform.position);
+      currentTime = Time.time;
+      if(currentTime - lastRotationUpdate > timeToWait) escapingZombie = false;
+      if(escapingZombie) return;
+      if(closestZombies.Count > 0) {
+        escapingZombie = true;
+        lastRotationUpdate = currentTime;
+        Vector3 averagePosition = directionFinder.AveragePosition(closestZombies, transform);
+        currentRotation = Quaternion.LookRotation(transform.position - averagePosition);
+      } else {
+        currentRotation = Quaternion.LookRotation(randPoint - transform.position);
       }
-      return Quaternion.LookRotation(randPoint - transform.position);
     }
 
     void OnCollisionEnter (Collision col)
