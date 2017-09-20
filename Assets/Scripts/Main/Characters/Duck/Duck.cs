@@ -37,7 +37,7 @@ namespace Unorthoducks
 
     public void Direction ()
     {
-      randPoint = locationFinder.RandomLocation(0.2f);
+      randPoint = locationFinder.RandomLocation(0.2f, 75f);
     }
 
     public void Update ()
