@@ -7,6 +7,7 @@ namespace Unorthoducks
 	{
 		private static int score = 0;
 		private static List<int> allScores = new List<int>();
+		private static int bonusPoints = 0;
 
 		public static void ZombieKill ()
 		{
@@ -18,6 +19,18 @@ namespace Unorthoducks
 		{
 			score -= 10;
 			GameManager.IncrementDeadDucks();
+		}
+
+		public static void AddDuckSurvivalBonus ()
+		{
+			int liveDucks = GameManager.RemainingDucks();
+			bonusPoints = liveDucks * 20;
+			score += bonusPoints;
+		}
+
+		public static int DuckSurvivalBonus ()
+		{
+			return bonusPoints;
 		}
 
 		public static void ZombieBiteDuck ()
