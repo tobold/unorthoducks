@@ -17,6 +17,17 @@ namespace Unorthoducks
       duckController.SetDuckMovementController (this);
       float randomTime = Random.Range(1f, 5f);
       InvokeRepeating("ChangeDirection", 0f, randomTime);
+      float randomQuackTime = Random.Range(1f, 6f);
+      Invoke("Quack", randomQuackTime);
+    }
+
+    public void Quack ()
+    {
+      AudioSource[] sounds = GetComponents<AudioSource>();
+      int randomSample = Random.Range(0, 2);
+      sounds[randomSample].Play();
+      float randomQuackTime = Random.Range(5f, 10f);
+      Invoke("Quack", randomQuackTime);
     }
 
     public void ChangeDirection()
