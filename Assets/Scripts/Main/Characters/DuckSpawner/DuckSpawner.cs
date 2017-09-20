@@ -10,8 +10,12 @@ namespace Unorthoducks
 
 		public void Start ()
 		{
-			numberDucks = 0;
 			controller.SetDuckSpawner (this);
+		}
+
+		public void Init ()
+		{
+			numberDucks = 0;
 			CreateDucks();
 		}
 
