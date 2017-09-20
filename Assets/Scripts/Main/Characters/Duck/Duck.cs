@@ -13,6 +13,7 @@ namespace Unorthoducks
     public float duckSpeed;
     private bool eliminated;
     public Vector3 randPoint;
+    private float lastUpdate = 0.0f, currentTime = 0.0f, timeToWait = 0.5f;
 
     public void Start ()
     {
@@ -39,7 +40,12 @@ namespace Unorthoducks
 
     public void Direction ()
     {
-      randPoint = locationFinder.RandomLocation(0.2f, 65f);
+      currentTime = Time.time;
+      if(currentTime - lastUpdate > timeToWait)
+      {
+        randPoint = locationFinder.RandomLocation(0.2f, 65f);
+        lastUpdate = Time.time;
+      }
     }
 
     public void FixedUpdate ()
@@ -67,12 +73,6 @@ namespace Unorthoducks
         return Quaternion.LookRotation(transform.position - closestZombie.transform.position);
       }
       return Quaternion.LookRotation(randPoint - transform.position);
-    }
-
-    private Vector3 ChooseDirection(GameObject closestZombie)
-    {
-      if(closestZombie) return closestZombie.transform.position;
-      else return randPoint;
     }
 
     void OnCollisionEnter (Collision col)
