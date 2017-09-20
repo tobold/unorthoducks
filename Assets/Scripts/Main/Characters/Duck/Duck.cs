@@ -17,6 +17,17 @@ namespace Unorthoducks
       duckController.SetDuckMovementController (this);
       float randomTime = Random.Range(1f, 5f);
       InvokeRepeating("ChangeDirection", 0f, randomTime);
+      float randomQuackTime = Random.Range(1f, 6f);
+      Invoke("Quack", randomQuackTime);
+    }
+
+    public void Quack ()
+    {
+      AudioSource[] sounds = GetComponents<AudioSource>();
+      int randomSample = Random.Range(0, 2);
+      sounds[randomSample].Play();
+      float randomQuackTime = Random.Range(5f, 10f);
+      Invoke("Quack", randomQuackTime);
     }
 
     public void ChangeDirection()
@@ -38,9 +49,8 @@ namespace Unorthoducks
     {
       GameObject closestZombie = objectFinder.GetClosestObject("Zombie", transform.position, 2f);
       bool escapingZombie = closestZombie ? true : false;
-      GetComponent<Rigidbody>().transform.position = Vector3.MoveTowards(transform.position,
-                                                    ChooseDirection(closestZombie),
-                                               ChooseSpeed(escapingZombie) * Time.deltaTime);
+      float speed = 0.5f;
+      GetComponent<Rigidbody>().MovePosition(transform.position + (transform.forward * Time.deltaTime * speed));
       transform.rotation = Quaternion.Slerp(transform.rotation, GetRotation(closestZombie), 0.2F);
     }
 
@@ -85,7 +95,7 @@ namespace Unorthoducks
       var newZombie = Instantiate(zombie, position, Quaternion.identity) as Zombie;
       newZombie.transform.parent = transform.parent;
       AudioSource[] sounds = newZombie.GetComponents<AudioSource>();
-      sounds[1].Play();
+      sounds[0].Play();
     }
   }
 }
