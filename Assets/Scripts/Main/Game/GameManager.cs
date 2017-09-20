@@ -75,9 +75,14 @@ namespace Unorthoducks
 			return zombieKillCount;
 		}
 
+		public static int RemainingDucks ()
+		{
+			return ducks - deadDucks;
+		}
+
 		public static bool IsGameOver()
 		{
-			if(deadDucks >= ducks) {
+			if(RemainingDucks() == 0) {
 				return true;
 			} else return false;
 		}
