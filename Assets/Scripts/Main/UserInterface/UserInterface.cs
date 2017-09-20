@@ -16,7 +16,7 @@ namespace Unorthoducks
 		public void Update ()
 		{
 			scoreText.text = ScoreManager.Score().ToString ();
-			roundText.text = "Round " + GameManager.RoundNumber().ToString ();
+			roundText.text = "Round " + RoundNumber();
 			CheckRoundOver();
 			if(showText) ShowRound();
 		}
@@ -42,12 +42,17 @@ namespace Unorthoducks
 		public void ShowRound ()
 		{
 			textPanel.gameObject.SetActive(true);
-			largeRoundText.text = "NEXT";
+			largeRoundText.text = "ROUND " + RoundNumber();
 		}
 
 		public void HideRound ()
 		{
 			textPanel.gameObject.SetActive(false);
+		}
+
+		public string RoundNumber ()
+		{
+			return GameManager.RoundNumber().ToString ();
 		}
 	}
 }

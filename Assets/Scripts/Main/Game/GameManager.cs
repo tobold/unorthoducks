@@ -79,8 +79,7 @@ namespace Unorthoducks
 
 		public static bool LevelComplete()
 		{
-			// if(zombieKillCount >= zombiesToKill) {
-			if(zombieKillCount >= 1) {
+			if(zombieKillCount >= zombiesToKill) {
 				return true;
 			} else return false;
 		}
