@@ -20,7 +20,7 @@ namespace Unorthoducks
 			numberZombies = 0;
 			if(this.gameObject.activeSelf) {
 				spawnPoints = GameObject.FindGameObjectsWithTag("ZombieSpawn");
-				InvokeRepeating("CreateZombieDucks", 3f, GameManager.GetSpawnRate());
+				InvokeRepeating("CreateZombieDucks", 5f, GameManager.GetSpawnRate());
 			}
 		}
 
