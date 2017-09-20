@@ -8,15 +8,25 @@ namespace Unorthoducks
 	public class GameOverText : MonoBehaviour {
 		public Text finalScore;
 		public Text allScores;
+		List<int> allScoresList = new List<int>();
 
 	  void Start () {
-	    ScoreManager.SaveScore();
 	    finalScore.text = "Gameover! You scored: " + ScoreManager.Score().ToString ();
-	    allScores.text = "Your previous scores: " + ScoreManager.AllScores()[0].ToString ();
+			PrintScoreHistory();
+			ScoreManager.SaveScore();
 	  }
 
-		void Update () {
-
+		void PrintScoreHistory () {
+			var scores = "";
+			allScoresList = ScoreManager.AllScores();
+			foreach(int element in allScoresList)
+				{
+					scores += element.ToString() + ". ";
+				}
+				if (scores != ""){
+					allScores.text = "Your previous scores: " + scores;
+				}
 		}
+
 	}
 }
