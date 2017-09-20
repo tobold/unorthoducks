@@ -84,7 +84,7 @@ namespace Unorthoducks
       var newZombie = Instantiate(zombie, position, Quaternion.identity) as Zombie;
       newZombie.transform.parent = transform.parent;
       AudioSource[] sounds = newZombie.GetComponents<AudioSource>();
-      sounds[1].Play();
+      sounds[0].Play();
     }
   }
 }
