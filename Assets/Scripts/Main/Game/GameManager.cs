@@ -19,7 +19,7 @@ namespace Unorthoducks
 		public static void BeginRound()
 		{
 			zombieKillCount = 0;
-			spawnRate = initialSpawnRate * (float)(Math.Pow(0.80, roundNumber));
+			spawnRate = initialSpawnRate * (float)(Math.Pow(0.85, roundNumber));
 			zombiesToKill = GetZombiesToSpawn();
 		}
 
@@ -31,7 +31,7 @@ namespace Unorthoducks
 
 		public static float GetZombiesToSpawn()
 		{
-			return (roundLength / initialSpawnRate);
+			return (roundLength / spawnRate);
 		}
 
 		public static float GetSpawnRate()
