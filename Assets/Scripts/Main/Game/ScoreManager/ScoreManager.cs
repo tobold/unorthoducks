@@ -46,6 +46,12 @@ namespace Unorthoducks
 		public static void SaveScore()
 		{
 			allScores.Add(score);
+			ResetScore();
+		}
+
+		public static void ResetScore()
+		{
+			score = 0;
 		}
 
 		public static List<int> AllScores()
