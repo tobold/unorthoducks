@@ -5,16 +5,21 @@ namespace Unorthoducks
 	public class GameManager
 	{
 		private static int roundNumber = 0;
+		private static int deadDucks = 0;
 
 		private static int ducks = Settings.GetInitialDuckCount();
 		private static float initialSpawnRate = Settings.GetInitialSpawnRate();
 		private static float roundLength = Settings.RoundLength();
 
-		private static int deadDucks = 0;
-
 		private static float zombiesToKill;
 		private static int zombieKillCount;
 		private static float spawnRate;
+
+		public static void Restart()
+		{
+			roundNumber = 0;
+			deadDucks = 0;
+		}
 
 		public static void BeginRound()
 		{
