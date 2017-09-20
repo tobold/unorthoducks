@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Unorthoducks
 {
@@ -55,22 +56,22 @@ namespace Unorthoducks
 
     public void Move ()
     {
-      GameObject closestZombie = objectFinder.GetClosestObject("Zombie", transform.position, 1f);
+      List<GameObject> closestZombies = objectFinder.GetClosestObjects("Zombie", transform.position, 1f);
       Vector3 movePosition;
-      if(closestZombie == null) {
+      if(closestZombies.Count > 0) movePosition = directionFinder.Forwards(transform, duckSpeed);
+      else {
         movePosition = directionFinder.Towards(transform, randPoint, duckSpeed);
         if(locationFinder.AlmostEqual(transform.position, randPoint, 0.1f)) ChangeDirection();
-      } else {
-        movePosition = directionFinder.Forwards(transform, duckSpeed);
       }
       GetComponent<Rigidbody>().MovePosition(movePosition);
-      transform.rotation = Quaternion.Slerp(transform.rotation, GetRotation(closestZombie), 0.5f);
+      transform.rotation = Quaternion.Slerp(transform.rotation, GetRotation(closestZombies), 0.5f);
     }
 
-    private Quaternion GetRotation(GameObject closestZombie)
+    private Quaternion GetRotation(List<GameObject> closestZombies)
     {
-      if(closestZombie) {
-        return Quaternion.LookRotation(transform.position - closestZombie.transform.position);
+      if(closestZombies.Count > 0) {
+        Vector3 averagePosition = directionFinder.AveragePosition(closestZombies, transform);
+        return Quaternion.LookRotation(transform.position - averagePosition);
       }
       return Quaternion.LookRotation(randPoint - transform.position);
     }
