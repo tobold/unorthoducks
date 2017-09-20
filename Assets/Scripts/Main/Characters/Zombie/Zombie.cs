@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Unorthoducks
 {
+	[RequireComponent(typeof(AudioSource))]
 	public class Zombie : MonoBehaviour, IDuckMovementController
 	{
     public GameObjectFinder objectFinder;
@@ -13,6 +14,8 @@ namespace Unorthoducks
 		{
 			eliminated = false;
 			zombieController.SetMovementController (this);
+			float randomTime = Random.Range(3f, 8f);
+      InvokeRepeating("Quack", 0f, randomTime);
 		}
 
     public void Update ()
@@ -20,6 +23,13 @@ namespace Unorthoducks
 			Direction();
       zombieController.Move();
     }
+
+		public void Quack ()
+		{
+			AudioSource[] sounds = GetComponents<AudioSource>();
+			int randomSample = Random.Range(1, 4);
+      sounds[randomSample].Play();
+		}
 
 		public void Direction ()
 		{
