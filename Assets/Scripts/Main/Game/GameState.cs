@@ -24,9 +24,8 @@ namespace Unorthoducks
     public void Update()
     {
       if(GameManager.IsGameOver()) {
-        Time.timeScale = 0;
-        Restart();
         SceneManager.LoadScene("GameOver");
+        Invoke("Restart", 2f);
       } else if(GameManager.LevelComplete()) {
         GameManager.EndRound();
         zombieSpawner.Init();
