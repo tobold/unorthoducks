@@ -11,7 +11,8 @@ namespace Unorthoducks
 		List<int> allScoresList = new List<int>();
 
 	  void Start () {
-	    finalScore.text = "Gameover! You scored: " + ScoreManager.Score().ToString ();
+			var score = ScoreManager.Score().ToString();
+	    finalScore.text = "Gameover! You scored: " + score;
 			PrintScoreHistory();
 			ScoreManager.SaveScore();
 	  }
