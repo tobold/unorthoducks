@@ -10,6 +10,7 @@ namespace Unorthoducks
     public BoardLocationFinder locationFinder;
     public BoardDirectionFinder directionFinder;
     public DuckController duckController;
+    public SoundManager soundManager;
     public Zombie zombie;
     public float duckSpeed;
     private bool eliminated, escapingZombie;
@@ -24,17 +25,8 @@ namespace Unorthoducks
       duckSpeed = 0.5f;
       duckController.SetDuckMovementController (this);
       ChangeDirection();
-      float randomQuackTime = Random.Range(1f, 6f);
-      Invoke("Quack", randomQuackTime);
-    }
-
-    public void Quack ()
-    {
       AudioSource[] sounds = GetComponents<AudioSource>();
-      int randomSample = Random.Range(0, 2);
-      sounds[randomSample].Play();
-      float randomQuackTime = Random.Range(5f, 10f);
-      Invoke("Quack", randomQuackTime);
+      soundManager.InitialiseQuacks (sounds);
     }
 
     public void ChangeDirection()

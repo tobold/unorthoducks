@@ -3314,5 +3314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectFinder: {fileID: 114689463901825842, guid: 27ed024d4520f4635aa9958fa7a244ed,
     type: 2}
+  soundManager: {fileID: 114271737914805672, guid: d99e40b65d16449e588cc2f3667f5875,
+    type: 2}
   direction: {x: 0, y: 0, z: 0}
   eliminated: 0
