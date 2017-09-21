@@ -26,7 +26,7 @@ namespace Unorthoducks
     public void BiteSound (AudioSource[] soundArray)
     {
       biteSounds = soundArray;
-      biteSounds[0].Play();
+      biteSounds[4].Play();
     }
   }
 }
