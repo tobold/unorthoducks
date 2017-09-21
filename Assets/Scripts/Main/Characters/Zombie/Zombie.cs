@@ -7,6 +7,7 @@ namespace Unorthoducks
 	{
     public GameObjectFinder objectFinder;
     public ZombieController zombieController;
+		public SoundManager soundManager;
 		public Vector3 direction;
 		public bool eliminated;
 
@@ -14,8 +15,8 @@ namespace Unorthoducks
 		{
 			eliminated = false;
 			zombieController.SetMovementController (this);
-			float randomTime = Random.Range(3f, 8f);
-      InvokeRepeating("Quack", 0f, randomTime);
+			AudioSource[] sounds = GetComponents<AudioSource>();
+      soundManager.InitialiseQuacks (sounds);
 		}
 
     public void Update ()
@@ -23,13 +24,6 @@ namespace Unorthoducks
 			Direction();
       zombieController.Move();
     }
-
-		public void Quack ()
-		{
-			AudioSource[] sounds = GetComponents<AudioSource>();
-			int randomSample = Random.Range(1, 4);
-      sounds[randomSample].Play();
-		}
 
 		public void Direction ()
 		{

@@ -9,6 +9,7 @@ TagManager:
   - Projectile
   - Edge
   - ZombieSpawn
+  - SoundManager
   layers:
   - Default
   - TransparentFX
