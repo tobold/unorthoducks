@@ -7,6 +7,7 @@ namespace Unorthoducks
 	public class Cloud : MonoBehaviour, ICloudMovementController
 	{
 		public CloudController cloudController;
+		public BoardLocationFinder locationFinder;
 		public float speed;
 		public int boardSize;
 		public Vector3 randPoint;
@@ -32,9 +33,7 @@ namespace Unorthoducks
 
 		public void ChangeDirection ()
 		{
-			var x = Random.Range(-boardSize/1.5f, boardSize/1.5f);
-			var z = Random.Range(-boardSize/1.5f, boardSize/1.5f);
-			randPoint = new Vector3(x, 3f, z);
+			randPoint = locationFinder.RandomLocation(3f, 100f);
 		}
 	}
 }

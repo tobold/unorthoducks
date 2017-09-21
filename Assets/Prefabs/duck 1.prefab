@@ -1143,7 +1143,10 @@ MonoBehaviour:
     type: 2}
   locationFinder: {fileID: 114245300326716850, guid: 6bea84cdd374a453b9a205c5a902d465,
     type: 2}
+  directionFinder: {fileID: 114514485071597854, guid: 17afe69059b664de383b36a92aaefd5c,
+    type: 2}
   zombie: {fileID: 114374164475417104, guid: 4e13af43a2c1547aaa3d6fc0f4e42017, type: 2}
+  duckSpeed: 0
   randPoint: {x: 0, y: 0, z: 0}
 --- !u!136 &136335258934848104
 CapsuleCollider:

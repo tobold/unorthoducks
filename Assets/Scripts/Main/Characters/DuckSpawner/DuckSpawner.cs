@@ -28,8 +28,8 @@ namespace Unorthoducks
 		{
 			int boardSize = Settings.LandscapeSize();
 			if (this.gameObject.activeSelf) {
-				var x = Random.Range(-boardSize/2f, boardSize/2f);
-				var y = Random.Range(-boardSize/2f, boardSize/2f);
+				var x = Random.Range(-boardSize/4f, boardSize/4f);
+				var y = Random.Range(-boardSize/4f, boardSize/4f);
 				var newDuck = Instantiate (duck, new Vector3 (x, 0.2f, y),
 					              Quaternion.identity) as Duck;
 				newDuck.transform.parent = transform;

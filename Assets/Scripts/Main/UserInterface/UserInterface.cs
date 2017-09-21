@@ -19,7 +19,10 @@ namespace Unorthoducks
 			scoreText.text = ScoreManager.Score().ToString ();
 			roundText.text = "Round " + RoundNumber();
 			CheckRoundOver();
-			if(showText) ShowRound();
+			if(showText) {
+				ShowRound();
+				ShowBonusPoints();
+			}
 		}
 
 		public void CheckRoundOver ()
@@ -36,6 +39,7 @@ namespace Unorthoducks
 					executedTime = 0.0f;
 					showText = false;
 					HideRound();
+					HideBonusPoints();
 				}
 			}
 		}
@@ -50,6 +54,17 @@ namespace Unorthoducks
 		public void HideRound ()
 		{
 			textPanel.gameObject.SetActive(false);
+			bonusPointsText.text = "";
+		}
+
+		public void ShowBonusPoints ()
+		{
+			bonusPointsText.text = "+ " + BonusPoints();
+		}
+
+		public void HideBonusPoints ()
+		{
+			bonusPointsText.text = "";
 		}
 
 		public string RoundNumber ()
