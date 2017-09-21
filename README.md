@@ -23,11 +23,11 @@
   <h2>Tech Stack</h2>
   <p style="text-align:left;"><b>
   <ul>
-    <li>Uinity 3D</li>
+    <li>Unity 3D</li>
     <li>Vuforia</li>
     <li>C#</li>
+    <li>Unity TestRunner with NUnit</li>
     <li>Adobe Illustrator</li>
-    <li>NUnit Unity</li>
     <li>GarageBand</li>
   </ul>
   <hr>
