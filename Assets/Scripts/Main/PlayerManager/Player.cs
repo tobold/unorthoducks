@@ -8,6 +8,14 @@ namespace Unorthoducks
     public PlayerController controller;
     public GameObject spawnPoint;
     public GameObject turret;
+	public Animator anim;
+	private bool turretshoot;
+
+		void start ()
+		{
+			turretshoot = false;
+			anim = GetComponent<Animator> ();
+		}
 
     private void OnEnable ()
 		{
@@ -16,8 +24,12 @@ namespace Unorthoducks
 
     private void Update()
     {
-      if (Input.GetMouseButtonDown(0))
-  				controller.ApplyFire ();
+			if (Input.GetMouseButtonDown (0)) {
+				controller.ApplyFire ();
+				anim.SetBool ("turretshoot", true);
+			} else {
+				anim.SetBool ("turretshoot", false);
+			}
     }
 
     public void Fire()
