@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 82991786173116030}
   - component: {fileID: 114271737914805672}
   m_Layer: 0
-  m_Name: SoundManager
+  m_Name: SoundManager 1
   m_TagString: SoundManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,5 +132,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4576064898155423fb007a617b06dc7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  biteSounds: []
-  quackSounds: []
+  biteSounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  quackSounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

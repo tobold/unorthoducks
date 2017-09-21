@@ -1226,7 +1226,7 @@ MonoBehaviour:
     type: 2}
   directionFinder: {fileID: 114514485071597854, guid: 17afe69059b664de383b36a92aaefd5c,
     type: 2}
-  soundManager: {fileID: 114271737914805672, guid: d99e40b65d16449e588cc2f3667f5875,
+  soundManager: {fileID: 114271737914805672, guid: 53ff247bb1746487fad9b7103218098e,
     type: 2}
   zombie: {fileID: 114374164475417104, guid: 4e13af43a2c1547aaa3d6fc0f4e42017, type: 2}
   duckSpeed: 0
