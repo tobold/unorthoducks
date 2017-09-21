@@ -13,21 +13,22 @@ namespace Unorthoducks
 	  void Start () {
 			var score = ScoreManager.Score().ToString();
 	    finalScore.text = "Gameover! You scored: " + score;
-			PrintScoreHistory();
 			ScoreManager.SaveScore();
+			PrintScoreHistory();
 	  }
 
 		void PrintScoreHistory () {
 			var scores = "";
 			allScoresList = ScoreManager.AllScores();
-			foreach(int element in allScoresList)
-				{
-					scores += element.ToString() + ". ";
-				}
+			allScoresList.Sort();
+			allScoresList.Reverse();
+			foreach(int element in allScoresList){
+					scores += element.ToString() + "$";
+			}
 				if (scores != ""){
-					allScores.text = "Your previous scores: " + scores;
-				}
+					allScores.text = "Top scores: " + "$" + scores;
+					allScores.text = allScores.text.Replace('$','\n');
+			}
 		}
-
 	}
 }

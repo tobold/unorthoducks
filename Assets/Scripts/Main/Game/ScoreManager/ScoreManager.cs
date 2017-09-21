@@ -24,7 +24,7 @@ namespace Unorthoducks
 		public static void AddDuckSurvivalBonus ()
 		{
 			int liveDucks = GameManager.RemainingDucks();
-			bonusPoints = liveDucks * 20;
+			bonusPoints = liveDucks * 10;
 			score += bonusPoints;
 		}
 
