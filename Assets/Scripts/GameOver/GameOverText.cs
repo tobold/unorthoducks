@@ -11,22 +11,24 @@ namespace Unorthoducks
 		List<int> allScoresList = new List<int>();
 
 	  void Start () {
-	    finalScore.text = "Gameover! You scored: " + ScoreManager.Score().ToString ();
-			PrintScoreHistory();
+			var score = ScoreManager.Score().ToString();
+	    finalScore.text = "Gameover! You scored: " + score;
 			ScoreManager.SaveScore();
+			PrintScoreHistory();
 	  }
 
 		void PrintScoreHistory () {
 			var scores = "";
 			allScoresList = ScoreManager.AllScores();
-			foreach(int element in allScoresList)
-				{
-					scores += element.ToString() + ". ";
-				}
+			allScoresList.Sort();
+			allScoresList.Reverse();
+			foreach(int element in allScoresList){
+					scores += element.ToString() + "$";
+			}
 				if (scores != ""){
-					allScores.text = "Your previous scores: " + scores;
-				}
+					allScores.text = "Top scores: " + "$" + scores;
+					allScores.text = allScores.text.Replace('$','\n');
+			}
 		}
-
 	}
 }

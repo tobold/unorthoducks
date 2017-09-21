@@ -1188,6 +1188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f770ae1778c1f4e9d920396f011357dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  locationFinder: {fileID: 114245300326716850, guid: 6bea84cdd374a453b9a205c5a902d465,
+    type: 2}
   speed: 0.5
   boardSize: 0
   randPoint: {x: 0, y: 0, z: 0}

@@ -15,15 +15,15 @@ namespace Vuforia
                                                 ITrackableEventHandler
     {
         #region PRIVATE_MEMBER_VARIABLES
- 
+
         private TrackableBehaviour mTrackableBehaviour;
-    
+
         #endregion // PRIVATE_MEMBER_VARIABLES
 
 
 
         #region UNTIY_MONOBEHAVIOUR_METHODS
-    
+
         void Start()
         {
             mTrackableBehaviour = GetComponent<TrackableBehaviour>();

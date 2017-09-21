@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Unorthoducks
 {
@@ -9,14 +10,14 @@ namespace Unorthoducks
       return GameObject.FindGameObjectsWithTag(tag);
     }
 
-    public GameObject GetClosestObject(string tag, Vector3 objectPosition, float minDistance)
+    public GameObject GetClosestObject(string tag, Vector3 myPosition, float minDistance)
     {
       GameObject closestObject = null;
       foreach (GameObject gameObject in FindObjects(tag))
       {
         if (gameObject)
         {
-          float dist = Vector3.Distance(gameObject.transform.position, objectPosition);
+          float dist = Vector3.Distance(gameObject.transform.position, myPosition);
           if (dist < minDistance)
           {
             closestObject = gameObject;
@@ -26,5 +27,19 @@ namespace Unorthoducks
       }
       return closestObject;
     }
+
+		public List<GameObject> GetClosestObjects(string tag, Vector3 myPosition, float minDistance)
+		{
+			List<GameObject> closestObjects = new List<GameObject>();
+			foreach (GameObject gameObject in FindObjects(tag))
+      {
+        if (gameObject)
+        {
+          float dist = Vector3.Distance(gameObject.transform.position, myPosition);
+          if (dist < minDistance) closestObjects.Add(gameObject);
+        }
+      }
+			return closestObjects;
+		}
   }
 }

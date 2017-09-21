@@ -9,6 +9,7 @@ namespace Unorthoducks
     public Text scoreText;
 		public Text roundText;
 		public Text largeRoundText;
+		public Text bonusPointsText;
 		public Image textPanel;
 		private float currentTime = 0.0f, executedTime = 0.0f, timeToWait = 3.0f;
 		private bool showText;
@@ -18,7 +19,10 @@ namespace Unorthoducks
 			scoreText.text = ScoreManager.Score().ToString ();
 			roundText.text = "Round " + RoundNumber();
 			CheckRoundOver();
-			if(showText) ShowRound();
+			if(showText) {
+				ShowRound();
+				ShowBonusPoints();
+			}
 		}
 
 		public void CheckRoundOver ()
@@ -35,6 +39,7 @@ namespace Unorthoducks
 					executedTime = 0.0f;
 					showText = false;
 					HideRound();
+					HideBonusPoints();
 				}
 			}
 		}
@@ -43,16 +48,33 @@ namespace Unorthoducks
 		{
 			textPanel.gameObject.SetActive(true);
 			largeRoundText.text = "ROUND " + RoundNumber();
+			bonusPointsText.text = "+ " + BonusPoints();
 		}
 
 		public void HideRound ()
 		{
 			textPanel.gameObject.SetActive(false);
+			bonusPointsText.text = "";
+		}
+
+		public void ShowBonusPoints ()
+		{
+			bonusPointsText.text = "+ " + BonusPoints();
+		}
+
+		public void HideBonusPoints ()
+		{
+			bonusPointsText.text = "";
 		}
 
 		public string RoundNumber ()
 		{
 			return GameManager.RoundNumber().ToString ();
+		}
+
+		public int BonusPoints ()
+		{
+			return ScoreManager.DuckSurvivalBonus();
 		}
 	}
 }
