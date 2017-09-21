@@ -6,7 +6,6 @@
   <hr>
 </div>
 
-
 <div align="center">
   <p style="text-align:center;"><b>The incredible 'Augmented Reality Zombie Duck Shooting Game'</b><br><br></p>
   <p><img src="https://i.imgur.com/FIRakDp.gif" width="300" style="margin 10px;"><br>
@@ -18,7 +17,6 @@
   It was developed as part of the final two week project at Makers Academy bootcamp<br><br>
   something else needs to be said here?</p>
 </div>
-
 
 <div align="left">
   <hr>
@@ -43,20 +41,4 @@
   Unity provides a multi platform game development tool with customisable and ready to use editor, graphical pipelines to DirectX and OpenGL, advanced physics engine, 2D and 3d physics, C# and JavaScript scripting, built in code editor.<br><br>
   Vuforia is an Augmented Reality Software Development Kit (SDK) for mobile devices that enables the creation of Augmented Reality applications. It uses Computer Vision technology to recognize and track planar images (Image Targets) and simple 3D objects, such as boxes, in real-time.<br>
   <hr>
-</div>
-<div>
-  <h2>Project Timeline</h2>
-  <br>
-  <ul>
-    <li>Brainstroming various ideas</li>
-    <li>Research possible technologies<li>
-    <li>making sure alex is sober</li>
-
-
-</div>
-
-
-
-
-
 </div>
