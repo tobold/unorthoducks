@@ -22,5 +22,11 @@ namespace Unorthoducks
       Invoke("Quack", randomQuackTime);
     }
 
+    public void BiteSound (AudioSource[] soundArray)
+    {
+      sounds = soundArray;
+      sounds[0].Play();
+    }
+
   }
 }

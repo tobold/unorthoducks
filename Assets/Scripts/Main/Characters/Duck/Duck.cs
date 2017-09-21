@@ -103,7 +103,7 @@ namespace Unorthoducks
       var newZombie = Instantiate(zombie, position, Quaternion.identity) as Zombie;
       newZombie.transform.parent = transform.parent;
       AudioSource[] sounds = newZombie.GetComponents<AudioSource>();
-      sounds[0].Play();
+      soundManager.BiteSound (sounds);
     }
   }
 }
