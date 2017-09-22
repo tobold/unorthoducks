@@ -8,7 +8,7 @@
 
 <div align="center">
   <p style="text-align:center;"><b>The incredible 'Augmented Reality Zombie Duck Shooting Game'</b><br><br></p>
-  <p><img src="https://i.imgur.com/FIRakDp.gif" width="300" style="margin 10px;"><br>
+  <img src="https://i.imgur.com/FIRakDp.gif" width="300" style="margin 10px;"><br>
   <hr>
   </div>
   <div>
