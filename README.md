@@ -7,10 +7,12 @@
 </div>
 
 <div align="center">
+<hr>
   <p style="text-align:center;"><b>The incredible 'Augmented Reality Zombie Duck Shooting Game'</b><br><br></p>
-  <p><img src="https://i.imgur.com/FIRakDp.gif" width="300" style="margin 10px;"><br>
+  <p><a href="https://i.imgur.com/FIRakDp.gif">see demo</a></p>
   <hr>
-  </div>
+</div>
+
   <div>
   <h2>Intro</h2>
   Unorthoducks is an augmented reality game developed using Unity by Alexander Blair, Alison Woodman, Michael Brown and Toby Hamand.<br><br>
