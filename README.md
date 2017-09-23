@@ -8,7 +8,8 @@
 
 <div align="center">
 <hr>
-  <p style="text-align:center;"><b><a href="https://i.imgur.com/FIRakDp.gif">The incredible 'Augmented Reality Zombie Duck Shooting Game'</a></b><br><br></p>
+  <p style="text-align:center;"><b>The incredible 'Augmented Reality Zombie Duck Shooting Game'</b><br><br></p>
+  <p><a href="https://i.imgur.com/FIRakDp.gif">see demo</a></p>
   <hr>
 </div>
 
